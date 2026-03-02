@@ -4,31 +4,31 @@ body {
     padding-top: 70px;
 }
 
-.navbar {
+.barraNav {
     position: fixed;
     top: 0;
     width: 100%;
-    background-color: #1e1e2f;
+    background-color: #1B4242;
     color: white;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
+    gap: 40px;
     align-items: center;
     padding: 15px 40px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    box-shadow: 0 2px 5px #5C8374;
 }
 
 .logo {
-    font-size: 22px;
-    font-weight: bold;
+    width: 32%;
 }
 
-.menu a {
-    color: white;
+.menuStudent a {
+    color: #9EC8B9;
     text-decoration: none;
     margin-left: 20px;
     transition: 0.3s;
 }
 
-.menu a:hover {
-    color: #00c3ff;
+.menuStudent a:hover {
+    color: white;
 }

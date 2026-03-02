@@ -1,6 +1,8 @@
-const barraNav =
-<Header class = "barraNav">
-    <div class = "logo">Mi web</div>
+const barraNav =`
+<header class = "barraNav">
+    <div class = "logo">
+    <img src="./images/logo_blanco.png" alt="Logo" class="logo">
+    </div>
     
     <nav class = "menuStudent">
         <a href="#">Inicio</a>
@@ -9,6 +11,6 @@ const barraNav =
         <a href="#">Contacto</a>
     </nav>
 
-</Header>
+</header>`;
 
-document.getElementById("barraNavContainer").innerHTML = navbar;
+document.getElementById("barraNavContainer").innerHTML = barraNav; ;
