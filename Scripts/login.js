@@ -73,9 +73,6 @@ function iniciarSesion() {
     rol:    usuario.rol,
   }));
 
-  error.textContent = "";
-  alert("¡Bienvenido/a, " + usuario.nombre + "!\nRol: " + usuario.rol);
-
   // Aquí luego redirigirías al dashboard:
-  // window.location.href = "dashboard.html";
+   window.location.href = "index.html";
 }
