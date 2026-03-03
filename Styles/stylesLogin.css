@@ -1,0 +1,125 @@
+/* Estilos generales */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #092635 0%, #1B4242 35%, #5C8374 70%, #9EC8B9 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+/* Caja principal */
+.contenedor {
+  background-color: white;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 420px;
+  text-align: center;
+}
+
+h1 {
+  font-size: 22px;
+  color: #1e3a5f;
+  margin-bottom: 6px;
+}
+
+.subtitulo {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 24px;
+}
+
+/* Botones de rol */
+.roles {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+
+.btn-rol {
+  padding: 8px 16px;
+  border: 2px solid #d1d5db;
+  border-radius: 20px;
+  background-color: #5C8374 ;
+  cursor: pointer;
+  font-size: 13px;
+  color: white;
+  transition: all 0.2s;
+}
+
+.btn-rol:hover {
+  border-color: #092635;
+}
+
+.btn-rol.activo {
+  background-color: #5C8374;
+  border-color: black;
+  color: white;
+  font-weight: bold;
+}
+
+/* Formulario */
+.formulario {
+  text-align: left;
+}
+
+
+
+label {
+  display: block;
+  font-size: 13px;
+  font-weight: bold;
+  color: #374151;
+  margin-bottom: 5px;
+  margin-top: 14px;
+}
+
+input {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+input:focus {
+  border-color: #3b82f6;
+}
+
+/* Mensaje de error */
+.error {
+  color: #ef4444;
+  font-size: 13px;
+  margin-top: 10px;
+  min-height: 18px;
+}
+
+/* Botón ingresar */
+.btn-ingresar {
+  width: 100%;
+  padding: 12px;
+  background-color: #5C8374;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: background-color 0.2s;
+}
+
+.btn-ingresar:hover {
+  background-color: #1B4242;
+}
