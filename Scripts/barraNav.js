@@ -1,16 +1,31 @@
-const barraNav =`
-<header class = "barraNav">
-    <div class = "logo">
-    <img src="./images/logo_blanco.png" alt="Logo" class="logo">
-    </div>
-    
-    <nav class = "menuStudent">
-        <a href="#">Inicio</a>
-        <a href="#">Acerca de</a>
-        <a href="#">Servicios</a>
-        <a href="#">Contacto</a>
-    </nav>
+// ── Dropdown del menú de usuario ──────────────────────
+const userBtn = document.getElementById("userBtn");
+const dropdown = document.getElementById("dropdown");
+const arrow = userBtn.querySelector(".arrow");
 
-</header>`;
+userBtn.addEventListener("click", (e) => {
+  e.stopPropagation();
+  const isOpen = dropdown.classList.toggle("show");
+  arrow.style.transform = isOpen ? "rotate(0deg)" : "rotate(180deg)";
+});
 
-document.getElementById("barraNavContainer").innerHTML = barraNav; ;
+document.addEventListener("click", () => {
+  dropdown.classList.remove("show");
+  arrow.style.transform = "rotate(180deg)";
+});
+
+// ── Toggle modo oscuro / claro ─────────────────────────
+const btnTheme = document.getElementById("btnTheme");
+btnTheme.addEventListener("click", () => {
+  document.body.classList.toggle("dark-mode");
+  btnTheme.textContent = document.body.classList.contains("dark-mode") ? "☀️" : "🌙";
+});
+
+// ── Link activo en la navegación ───────────────────────
+document.querySelectorAll(".nav-link").forEach(link => {
+  link.addEventListener("click", function (e) {
+    e.preventDefault();
+    document.querySelectorAll(".nav-link").forEach(l => l.classList.remove("active"));
+    this.classList.add("active");
+  });
+});

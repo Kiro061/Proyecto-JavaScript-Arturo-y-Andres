@@ -1,14 +1,62 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Institucion Educativa ABC</title>
-    <link rel="stylesheet" href="./Styles/Styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Institucion Educativa ABC</title>
+  <link rel="stylesheet" href="./Styles/Styles.css">
 </head>
 <body>
-    <div id="barraNavContainer"></div>
+
+  <header class="barraNav">
+    <div class="logoBarra">
+      <img src="./images/logo_blanco.png" alt="Logo" class="logo">
+    </div>
+
+    <nav class="menuStudent">
+      <a href="#" class="nav-link active">Panel</a>
+      <a href="#" class="nav-link">Cursos</a>
+      <a href="#" class="nav-link">Docentes</a>
+      <a href="#" class="nav-link">Administrativos</a>
+    </nav>
+
+    <div class="navControls">
+      <button class="btnTheme" id="btnTheme" title="Cambiar tema">🌙</button>
+
+      <select class="selectIdioma" id="selectIdioma">
+        <option value="es">Español ▾</option>
+        <option value="en">English ▾</option>
+      </select>
+
+      <div class="userMenu">
+        <button class="userBtn" id="userBtn">
+          <div class="userAvatar">
+            <img src="./images/ImagenPerfil.png" alt="Usuario">
+          </div>
+          <span class="userName">Andres Castellanos</span>
+          <span class="arrow">▲</span>
+        </button>
+
+        <div class="dropdown" id="dropdown">
+          <a href="#" class="dropItem">
+            <img src="./images/user.svg" class="dropIcon-img" alt="Mi perfil">
+            Mi perfil
+          </a>
+          <a href="#" class="dropItem">
+            <img src="./images/settings.svg" class="dropIcon-img" alt="Ajustes">
+            Ajustes
+          </a>
+          <div class="dropDivider"></div>
+          <a href="#" class="dropItem logout">
+            <img src="./images/logout.svg" class="dropIcon-img" alt="Ajustes">
+            Cerrar sesión
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <script src="./Scripts/Scripts.js"></script>
+  <script src="./Scripts/barraNav.js"></script>
 </body>
-<script src="./Scripts/Scripts.js"></script>
-<script src="./Scripts/barraNav.js"></script>
 </html>
