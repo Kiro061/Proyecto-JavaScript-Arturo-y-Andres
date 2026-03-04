@@ -73,6 +73,6 @@ function iniciarSesion() {
     rol:    usuario.rol,
   }));
 
-  // Aquí luego redirigirías al dashboard:
-   window.location.href = "index.html";
+  // Aquí luego redirigirías al principal según el rol:
+   window.location.href = "./pages/principal.html";
 }

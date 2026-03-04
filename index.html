@@ -1,62 +1,43 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Institucion Educativa ABC</title>
-  <link rel="stylesheet" href="./Styles/Styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>LMS - Institución Educativa ABC</title>
+  <link rel="stylesheet" href="./Styles/stylesLogin.css"/>
 </head>
 <body>
 
-  <header class="barraNav">
-    <div class="logoBarra">
-      <img src="./images/logo_blanco.png" alt="Logo" class="logo">
+<div class="contenedor">
+
+    <h1>Institución Educativa ABC</h1>
+    <p class="subtitulo">Selecciona tu rol e inicia sesión</p>
+
+    <!-- Botones para elegir rol -->
+    <div class="roles">
+    <button class="btn-rol activo" onclick="cambiarRol('estudiante', this)">🎓 Estudiante</button>
+    <button class="btn-rol" onclick="cambiarRol('docente', this)">📚 Docente</button>
+    <button class="btn-rol" onclick="cambiarRol('coordinador', this)">⚙️ Coordinador</button>
     </div>
 
-    <nav class="menuStudent">
-      <a href="#" class="nav-link active">Panel</a>
-      <a href="#" class="nav-link">Cursos</a>
-      <a href="#" class="nav-link">Docentes</a>
-      <a href="#" class="nav-link">Administrativos</a>
-    </nav>
+    <!-- Formulario de login -->
+    <div class="formulario">
 
-    <div class="navControls">
-      <button class="btnTheme" id="btnTheme" title="Cambiar tema">🌙</button>
 
-      <select class="selectIdioma" id="selectIdioma">
-        <option value="es">Español ▾</option>
-        <option value="en">English ▾</option>
-      </select>
+        <label for="correo">Correo electrónico</label>
+        <input type="email" id="correo" placeholder="tucorreo@abc.edu.co" />
 
-      <div class="userMenu">
-        <button class="userBtn" id="userBtn">
-          <div class="userAvatar">
-            <img src="./images/ImagenPerfil.png" alt="Usuario">
-          </div>
-          <span class="userName">Andres Castellanos</span>
-          <span class="arrow">▲</span>
-        </button>
+        <label for="contrasena">Contraseña</label>
+        <input type="password" id="contrasena" placeholder="••••••••" />
 
-        <div class="dropdown" id="dropdown">
-          <a href="#" class="dropItem">
-            <img src="./images/user.svg" class="dropIcon-img" alt="Mi perfil">
-            Mi perfil
-          </a>
-          <a href="#" class="dropItem">
-            <img src="./images/settings.svg" class="dropIcon-img" alt="Ajustes">
-            Ajustes
-          </a>
-          <div class="dropDivider"></div>
-          <a href="#" class="dropItem logout">
-            <img src="./images/logout.svg" class="dropIcon-img" alt="Ajustes">
-            Cerrar sesión
-          </a>
-        </div>
-      </div>
+        <p id="mensaje-error" class="error"></p>
+
+        <button class="btn-ingresar" onclick="iniciarSesion()">Ingresar</button>
+
     </div>
-  </header>
 
-  <script src="./Scripts/Scripts.js"></script>
-  <script src="./Scripts/barraNav.js"></script>
+</div>
+
+<script src="./Scripts/loginIndex.js"></script>
 </body>
 </html>
