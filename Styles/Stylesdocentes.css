@@ -1,5 +1,7 @@
 .pagina {
     padding: 30px;
+    max-width: 1100px;
+    margin: 0 auto;
 }
 
 .pagina h2 {
@@ -26,6 +28,7 @@
     border-radius: 10px;
     width: 420px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    margin: 0 auto;
 }
 
 .formulario label {

@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <title>Docentes</title>
   <link rel="stylesheet" href="Styles/Styles.css">
-  <link rel="stylesheet" href="./Styles/StylesDocentes.css">
+  <link rel="stylesheet" href="./Styles/Stylesdocentes.css">
 </head>
 <body>
 
@@ -15,9 +15,45 @@
     <nav class="menuStudent">
       <a href="index.html" class="nav-link">Panel</a>
       <a href="#" class="nav-link">Cursos</a>
-      <a href="docentes.html" class="nav-link active">Docentes</a>
+      <a href="Docentes.html" class="nav-link active">Docentes</a>
       <a href="#" class="nav-link">Administrativos</a>
     </nav>
+
+    <div class="navControls">
+      <button class="btnTheme" id="btnTheme" title="Cambiar tema">🌙</button>
+
+      <select class="selectIdioma" id="selectIdioma">
+        <option value="es">Español ▾</option>
+        <option value="en">English ▾</option>
+      </select>
+
+      <div class="userMenu">
+        <button class="userBtn" id="userBtn">
+          <div class="userAvatar">
+            <img src="images/ImagenPerfil.png" alt="Usuario">
+          </div>
+          <span class="userName">Andres Castellanos</span>
+          <span class="arrow">▲</span>
+        </button>
+
+        <div class="dropdown" id="dropdown">
+          <a href="#" class="dropItem">
+            <img src="images/user.svg" class="dropIcon-img" alt="Mi perfil">
+            Mi perfil
+          </a>
+          <a href="#" class="dropItem">
+            <img src="images/settings.svg" class="dropIcon-img" alt="Ajustes">
+            Ajustes
+          </a>
+          <div class="dropDivider"></div>
+          <a href="#" class="dropItem logout">
+            <img src="images/logout.svg" class="dropIcon-img" alt="Cerrar sesion">
+            Cerrar sesión
+          </a>
+        </div>
+      </div>
+    </div>
+
   </header>
 
   <div class="pagina">
@@ -89,7 +125,7 @@
   </div>
 
   <script src="Scripts/barraNav.js"></script>
-  <script src="Scripts/scriptdocentes.js"></script>
+  <script src="Scripts/Scriptdocentes.js"></script>
 
 </body>
 </html>
