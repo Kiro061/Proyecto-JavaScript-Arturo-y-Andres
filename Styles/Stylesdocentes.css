@@ -1,0 +1,143 @@
+.pagina {
+    padding: 30px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.pagina h2 {
+    color: #1B4242;
+    font-size: 24px;
+    margin-bottom: 20px;
+    border-bottom: 3px solid #9EC8B9;
+    padding-bottom: 8px;
+}
+
+.pagina h3 {
+    color: #1B4242;
+    margin-top: 35px;
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+
+/* formulario */
+
+.formulario {
+    background-color: white;
+    padding: 25px;
+    border: 1px solid #d0e8e0;
+    border-radius: 10px;
+    width: 420px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    margin: 0 auto;
+}
+
+.formulario label {
+    display: block;
+    margin-top: 12px;
+    font-weight: bold;
+    color: #1B4242;
+    font-size: 14px;
+}
+
+.formulario input,
+.formulario select {
+    width: 100%;
+    padding: 8px 10px;
+    margin-top: 4px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+    color: #333;
+}
+
+.formulario input:focus,
+.formulario select:focus {
+    outline: none;
+    border-color: #5C8374;
+    box-shadow: 0 0 0 2px rgba(92, 131, 116, 0.2);
+}
+
+.formulario button {
+    margin-top: 18px;
+    margin-right: 8px;
+    padding: 9px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.formulario button:first-of-type {
+    background-color: #1B4242;
+    color: white;
+}
+
+.formulario button:first-of-type:hover {
+    background-color: #5C8374;
+}
+
+.formulario button:last-of-type {
+    background-color: #e0e0e0;
+    color: #444;
+}
+
+.formulario button:last-of-type:hover {
+    background-color: #ccc;
+}
+
+/* tabla */
+
+#tabla {
+    margin-top: 10px;
+    border-collapse: collapse;
+    width: 100%;
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    border: 1px solid #d0e8e0;
+}
+
+#tabla th {
+    background-color: #1B4242;
+    color: #9EC8B9;
+    padding: 12px 14px;
+    text-align: left;
+    font-size: 13px;
+    letter-spacing: 0.5px;
+}
+
+#tabla td {
+    padding: 10px 14px;
+    border-bottom: 1px solid #eef4f2;
+    font-size: 14px;
+    color: #333;
+}
+
+#tabla tr:last-child td {
+    border-bottom: none;
+}
+
+#tabla tr:hover {
+    background-color: #f4faf8;
+}
+
+#tabla img {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #9EC8B9;
+}
+
+#tabla button {
+    padding: 5px 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    color: white;
+    font-size: 13px;
+    font-weight: bold;
+    margin-right: 5px;
+}
