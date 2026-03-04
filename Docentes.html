@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Docentes</title>
+  <link rel="stylesheet" href="Styles/Styles.css">
+  <link rel="stylesheet" href="./Styles/StylesDocentes.css">
+</head>
+<body>
+
+  <header class="barraNav">
+    <div class="logoBarra">
+      <img src="images/logo_blanco.png" alt="Logo" class="logo">
+    </div>
+    <nav class="menuStudent">
+      <a href="index.html" class="nav-link">Panel</a>
+      <a href="#" class="nav-link">Cursos</a>
+      <a href="docentes.html" class="nav-link active">Docentes</a>
+      <a href="#" class="nav-link">Administrativos</a>
+    </nav>
+  </header>
+
+  <div class="pagina">
+
+    <h2>Gestion de Docentes</h2>
+
+    <div class="formulario">
+
+      <input type="hidden" id="indiceEditar" value="-1">
+
+      <label>Codigo:</label>
+      <input type="text" id="codigo" placeholder="DOC-001">
+
+      <label>Identificacion:</label>
+      <input type="text" id="identificacion" placeholder="1098765432">
+
+      <label>Nombres:</label>
+      <input type="text" id="nombres" placeholder="Carlos">
+
+      <label>Apellidos:</label>
+      <input type="text" id="apellidos" placeholder="Martinez">
+
+      <label>Email:</label>
+      <input type="text" id="email" placeholder="correo@abc.edu.co">
+
+      <label>URL foto:</label>
+      <input type="text" id="foto" placeholder="https://...">
+
+      <label>Area academica:</label>
+      <select id="area">
+        <option value="">Seleccionar...</option>
+        <option>Biologia</option>
+        <option>Informatica</option>
+        <option>Matematicas</option>
+        <option>Lengua Castellana</option>
+        <option>Historia</option>
+        <option>Fisica</option>
+        <option>Quimica</option>
+        <option>Artes</option>
+        <option>Educacion Fisica</option>
+      </select>
+
+      <p id="error" style="color:red;"></p>
+
+      <button onclick="guardar()">Guardar</button>
+      <button onclick="limpiar()">Cancelar</button>
+
+    </div>
+
+    <h3>Lista de docentes</h3>
+
+    <table id="tabla">
+      <thead>
+        <tr>
+          <th>Foto</th>
+          <th>Codigo</th>
+          <th>Identificacion</th>
+          <th>Nombres</th>
+          <th>Apellidos</th>
+          <th>Email</th>
+          <th>Area</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody id="filas">
+      </tbody>
+    </table>
+
+  </div>
+
+  <script src="Scripts/barraNav.js"></script>
+  <script src="Scripts/scriptdocentes.js"></script>
+
+</body>
+</html>
