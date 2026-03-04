@@ -1,0 +1,364 @@
+/* ── PÁGINA ─────────────────────────────────────── */
+.pagina {
+    padding: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.pagina-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+}
+
+.pagina h2 {
+    color: #1B4242;
+    font-size: 24px;
+    margin: 0 0 4px 0;
+    border-bottom: 3px solid #9EC8B9;
+    padding-bottom: 8px;
+}
+
+.pagina-subtitulo {
+    color: #5C8374;
+    font-size: 14px;
+    margin: 0;
+}
+
+body.dark-mode .pagina h2 { color: #9EC8B9; }
+body.dark-mode .pagina-subtitulo { color: #9EC8B9; }
+
+/* ── BOTÓN NUEVO ────────────────────────────────── */
+.btn-nuevo {
+    background-color: #1B4242;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    font-family: 'Nunito', sans-serif;
+    white-space: nowrap;
+    transition: background 0.2s, transform 0.1s;
+    flex-shrink: 0;
+}
+.btn-nuevo:hover { background-color: #5C8374; transform: translateY(-1px); }
+
+/* ── BARRA DE BÚSQUEDA ──────────────────────────── */
+.barra-busqueda {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 16px;
+    flex-wrap: wrap;
+}
+
+.barra-busqueda input {
+    flex: 1;
+    min-width: 200px;
+    padding: 10px 14px;
+    border: 1px solid #d0e8e0;
+    border-radius: 8px;
+    font-size: 14px;
+    font-family: 'Nunito', sans-serif;
+    background: white;
+    color: #333;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+.barra-busqueda input:focus {
+    outline: none;
+    border-color: #5C8374;
+    box-shadow: 0 0 0 3px rgba(92, 131, 116, 0.15);
+}
+
+body.dark-mode .barra-busqueda input {
+    background: #1B4242;
+    border-color: #5C8374;
+    color: #9EC8B9;
+}
+
+.contador {
+    font-size: 13px;
+    color: #5C8374;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+/* ── TABLA ──────────────────────────────────────── */
+.tabla-wrapper {
+    overflow-x: auto;
+    border-radius: 10px;
+    box-shadow: 0 2px 12px rgba(9, 38, 53, 0.09);
+    border: 1px solid #d0e8e0;
+}
+
+#tablaAdmins {
+    border-collapse: collapse;
+    width: 100%;
+    background-color: white;
+    min-width: 700px;
+}
+
+#tablaAdmins th {
+    background-color: #1B4242;
+    color: #9EC8B9;
+    padding: 13px 16px;
+    text-align: left;
+    font-size: 13px;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+}
+
+#tablaAdmins td {
+    padding: 11px 16px;
+    border-bottom: 1px solid #eef4f2;
+    font-size: 14px;
+    color: #333;
+    vertical-align: middle;
+}
+
+#tablaAdmins tr:last-child td { border-bottom: none; }
+#tablaAdmins tbody tr:hover { background-color: #f4faf8; }
+
+body.dark-mode #tablaAdmins { background: #092635; }
+body.dark-mode #tablaAdmins td { color: #9EC8B9; border-bottom-color: #1B4242; }
+body.dark-mode #tablaAdmins tbody tr:hover { background-color: #1B4242; }
+body.dark-mode .tabla-wrapper { border-color: #1B4242; }
+
+/* Badge de cargo */
+.badge-cargo {
+    display: inline-block;
+    background: #eef6f4;
+    color: #1B4242;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: 20px;
+    border: 1px solid #9EC8B9;
+    white-space: nowrap;
+}
+
+body.dark-mode .badge-cargo {
+    background: #1B4242;
+    color: #9EC8B9;
+}
+
+/* Botones acción en tabla */
+.btn-editar, .btn-eliminar {
+    padding: 5px 13px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 700;
+    color: white;
+    margin-right: 5px;
+    font-family: 'Nunito', sans-serif;
+    transition: opacity 0.15s;
+}
+.btn-editar { background-color: #1B4242; }
+.btn-editar:hover { background-color: #5C8374; }
+.btn-eliminar { background-color: #c0392b; }
+.btn-eliminar:hover { opacity: 0.85; }
+
+/* Fila vacía */
+.fila-vacia td {
+    text-align: center;
+    color: #9EC8B9;
+    padding: 40px !important;
+    font-size: 15px;
+}
+
+/* ── MODAL ──────────────────────────────────────── */
+.modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(9, 38, 53, 0.55);
+    z-index: 3000;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    backdrop-filter: blur(2px);
+}
+.modal-overlay.activo { display: flex; }
+
+.modal {
+    background: white;
+    border-radius: 14px;
+    width: 100%;
+    max-width: 580px;
+    box-shadow: 0 20px 50px rgba(9, 38, 53, 0.3);
+    animation: popIn 0.22s ease;
+    overflow: hidden;
+}
+
+@keyframes popIn {
+    from { opacity: 0; transform: scale(0.94) translateY(10px); }
+    to   { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+body.dark-mode .modal { background: #0f2f3f; }
+
+.modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 24px 16px;
+    border-bottom: 1px solid #eef4f2;
+}
+
+.modal-header h3 {
+    margin: 0;
+    color: #1B4242;
+    font-size: 18px;
+}
+
+body.dark-mode .modal-header h3 { color: #9EC8B9; }
+body.dark-mode .modal-header { border-bottom-color: #1B4242; }
+
+.modal-close {
+    background: transparent;
+    border: none;
+    font-size: 18px;
+    color: #5C8374;
+    cursor: pointer;
+    padding: 4px 8px;
+    border-radius: 6px;
+    line-height: 1;
+    transition: background 0.15s;
+}
+.modal-close:hover { background: #eef6f4; color: #c0392b; }
+
+.modal-body {
+    padding: 22px 24px 8px;
+}
+
+/* Grilla del formulario */
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px 20px;
+}
+
+.form-group { display: flex; flex-direction: column; gap: 5px; }
+.form-group--full { grid-column: 1 / -1; }
+
+.form-group label {
+    font-size: 13px;
+    font-weight: 700;
+    color: #1B4242;
+}
+body.dark-mode .form-group label { color: #9EC8B9; }
+
+.req { color: #c0392b; }
+
+.form-group input,
+.form-group select {
+    padding: 9px 12px;
+    border: 1px solid #cdd;
+    border-radius: 7px;
+    font-size: 14px;
+    font-family: 'Nunito', sans-serif;
+    color: #333;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    background: white;
+}
+.form-group input:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: #5C8374;
+    box-shadow: 0 0 0 3px rgba(92, 131, 116, 0.15);
+}
+body.dark-mode .form-group input,
+body.dark-mode .form-group select {
+    background: #092635;
+    border-color: #5C8374;
+    color: #9EC8B9;
+}
+
+/* Input contraseña */
+.input-pass {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+.input-pass input {
+    width: 100%;
+    padding-right: 42px;
+    box-sizing: border-box;
+}
+.toggle-pass {
+    position: absolute;
+    right: 8px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 4px;
+    line-height: 1;
+}
+
+.hint {
+    color: #5C8374;
+    font-size: 12px;
+    margin-top: 3px;
+}
+
+.error-msg {
+    color: #c0392b;
+    font-size: 13px;
+    font-weight: 600;
+    margin: 10px 0 0;
+    min-height: 18px;
+}
+
+.modal-footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    padding: 16px 24px 20px;
+    border-top: 1px solid #eef4f2;
+}
+body.dark-mode .modal-footer { border-top-color: #1B4242; }
+
+.btn-cancelar {
+    padding: 9px 22px;
+    border: 1px solid #cdd;
+    border-radius: 7px;
+    background: white;
+    font-size: 14px;
+    font-weight: 700;
+    font-family: 'Nunito', sans-serif;
+    cursor: pointer;
+    color: #5C8374;
+    transition: background 0.15s;
+}
+.btn-cancelar:hover { background: #f0f6f5; }
+body.dark-mode .btn-cancelar { background: #1B4242; color: #9EC8B9; border-color: #5C8374; }
+
+.btn-guardar {
+    padding: 9px 26px;
+    border: none;
+    border-radius: 7px;
+    background: #1B4242;
+    color: white;
+    font-size: 14px;
+    font-weight: 700;
+    font-family: 'Nunito', sans-serif;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+.btn-guardar:hover { background: #5C8374; }
+
+/* ── RESPONSIVE ─────────────────────────────────── */
+@media (max-width: 520px) {
+    .form-grid { grid-template-columns: 1fr; }
+    .form-group--full { grid-column: 1; }
+    .pagina-header { flex-direction: column; }
+    .btn-nuevo { width: 100%; text-align: center; }
+}

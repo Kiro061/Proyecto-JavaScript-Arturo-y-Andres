@@ -3,8 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Institucion Educativa ABC</title>
+  <title>Mi Perfil - Institución Educativa ABC</title>
   <link rel="stylesheet" href="../Styles/Styles.css">
+  <link rel="stylesheet" href="../Styles/Stylesperfil.css">
 </head>
 <body>
 
@@ -12,33 +13,28 @@
     <div class="logoBarra">
       <img src="../images/logo_blanco.png" alt="Logo" class="logo">
     </div>
-
     <nav class="menuStudent">
-      <a href="#" class="nav-link active">Panel</a>
-      <a href="#" class="nav-link">Cursos</a>
-      <a href="#" class="nav-link">Docentes</a>
-      <a href="#" class="nav-link">Administrativos</a>
+      <a href="./principal.html" class="nav-link">Panel</a>
+      <a href="./Cursos.html" class="nav-link">Cursos</a>
+      <a href="./Docentes.html" class="nav-link">Docentes</a>
+      <a href="./administrativos.html" class="nav-link">Administrativos</a>
     </nav>
-
     <div class="navControls">
       <button class="btnTheme" id="btnTheme" title="Cambiar tema">🌙</button>
-
       <select class="selectIdioma" id="selectIdioma">
         <option value="es">Español ▾</option>
         <option value="en">English ▾</option>
       </select>
-
       <div class="userMenu">
         <button class="userBtn" id="userBtn">
           <div class="userAvatar">
-            <img src="../images/ImagenPerfil.png" alt="Usuario">
+            <img src="../images/ImagenPerfil.png" alt="Usuario" id="fotoNavbar">
           </div>
-          <span class="userName">Andres Castellanos</span>
+          <span class="userName" id="nombreNavbar">Usuario</span>
           <span class="arrow">▲</span>
         </button>
-
         <div class="dropdown" id="dropdown">
-          <a href="#" class="dropItem">
+          <a href="./perfil.html" class="dropItem">
             <img src="../images/user.svg" class="dropIcon-img" alt="Mi perfil">
             Mi perfil
           </a>
@@ -47,8 +43,8 @@
             Ajustes
           </a>
           <div class="dropDivider"></div>
-          <a href="#" class="dropItem logout">
-            <img src="../images/logout.svg" class="dropIcon-img" alt="Ajustes">
+          <a href="../index.html" class="dropItem logout">
+            <img src="../images/logout.svg" class="dropIcon-img" alt="Cerrar sesión">
             Cerrar sesión
           </a>
         </div>
@@ -56,7 +52,160 @@
     </div>
   </header>
 
-  <script src="../Scripts/perfil.js"></script>
+  <div class="perfil-page">
+
+    <!-- Hero / cabecera del perfil -->
+    <div class="perfil-hero">
+      <div class="hero-banner"></div>
+      <div class="hero-info">
+        <div class="avatar-wrap">
+          <img src="../images/ImagenPerfil.png" alt="Foto de perfil" id="fotoPerfil" class="avatar-img">
+        </div>
+        <div class="hero-texto">
+          <h1 id="heroNombre">—</h1>
+          <p id="heroRol" class="hero-rol">—</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="perfil-contenido">
+
+      <!-- Información Personal -->
+      <section class="card-seccion">
+        <div class="seccion-header">
+          <h2>Información Personal</h2>
+          <button class="btn-editar-seccion" id="btnEditarPersonal" onclick="toggleEditar('personal')">✏️ Editar</button>
+        </div>
+        <div class="campos-grid" id="grupoPersonal">
+
+          <div class="campo-grupo">
+            <label>Nombre completo</label>
+            <input type="text" id="nombreCompleto" placeholder="Ingresa tu nombre completo" disabled>
+          </div>
+
+          <div class="campo-grupo">
+            <label>Correo electrónico</label>
+            <input type="email" id="correo" placeholder="correo@abc.edu.co" disabled>
+          </div>
+
+          <div class="campo-grupo">
+            <label>Teléfono</label>
+            <input type="text" id="telefono" placeholder="3001234567" disabled>
+          </div>
+
+          <div class="campo-grupo">
+            <label>Dirección</label>
+            <input type="text" id="direccion" placeholder="Calle 123 # 45-67, Ciudad" disabled>
+          </div>
+
+          <div class="campo-grupo">
+            <label>Fecha de nacimiento</label>
+            <input type="date" id="fechaNacimiento" disabled>
+          </div>
+
+          <div class="campo-grupo">
+            <label>Género</label>
+            <select id="genero" disabled>
+              <option value="">Seleccionar...</option>
+              <option value="Masculino">Masculino</option>
+              <option value="Femenino">Femenino</option>
+              <option value="Otro">Otro</option>
+              <option value="Prefiero no decir">Prefiero no decir</option>
+            </select>
+          </div>
+
+        </div>
+        <div class="seccion-acciones" id="accionesPersonal" style="display:none;">
+          <button class="btn-cancelar-edit" onclick="cancelarEditar('personal')">Cancelar</button>
+          <button class="btn-guardar-edit" onclick="guardarSeccion('personal')">Guardar cambios</button>
+        </div>
+      </section>
+
+      <!-- Información Académica / Institucional -->
+      <section class="card-seccion">
+        <div class="seccion-header">
+          <h2>Información Institucional</h2>
+          <button class="btn-editar-seccion" id="btnEditarInstitucional" onclick="toggleEditar('institucional')">✏️ Editar</button>
+        </div>
+        <div class="campos-grid" id="grupoInstitucional">
+
+          <div class="campo-grupo">
+            <label>Identificación</label>
+            <input type="text" id="identificacion" placeholder="Número de identificación" disabled>
+          </div>
+
+          <div class="campo-grupo">
+            <label>Rol en la institución</label>
+            <input type="text" id="rolInstitucion" placeholder="—" disabled>
+          </div>
+
+          <div class="campo-grupo">
+            <label>Código / ID institucional</label>
+            <input type="text" id="codigoInstitucional" placeholder="Ej. EST-001" disabled>
+          </div>
+
+          <div class="campo-grupo">
+            <label>Área / Grado</label>
+            <input type="text" id="areaGrado" placeholder="Ej. Grado 10° / Informática" disabled>
+          </div>
+
+          <div class="campo-grupo">
+            <label>Fecha de ingreso</label>
+            <input type="date" id="fechaIngreso" disabled>
+          </div>
+
+          <div class="campo-grupo">
+            <label>Estado</label>
+            <select id="estadoUsuario" disabled>
+              <option value="Activo">Activo</option>
+              <option value="Inactivo">Inactivo</option>
+              <option value="En proceso">En proceso</option>
+            </select>
+          </div>
+
+        </div>
+        <div class="seccion-acciones" id="accionesInstitucional" style="display:none;">
+          <button class="btn-cancelar-edit" onclick="cancelarEditar('institucional')">Cancelar</button>
+          <button class="btn-guardar-edit" onclick="guardarSeccion('institucional')">Guardar cambios</button>
+        </div>
+      </section>
+
+      <!-- Seguridad -->
+      <section class="card-seccion">
+        <div class="seccion-header">
+          <h2>Seguridad</h2>
+          <button class="btn-editar-seccion" id="btnEditarSeguridad" onclick="toggleEditar('seguridad')">✏️ Editar</button>
+        </div>
+        <div class="campos-grid" id="grupoSeguridad">
+
+          <div class="campo-grupo">
+            <label>Contraseña actual</label>
+            <input type="password" id="passActual" placeholder="••••••••" disabled>
+          </div>
+
+          <div class="campo-grupo">
+            <label>Nueva contraseña</label>
+            <input type="password" id="passNueva" placeholder="Mínimo 6 caracteres" disabled>
+          </div>
+
+          <div class="campo-grupo">
+            <label>Confirmar nueva contraseña</label>
+            <input type="password" id="passConfirmar" placeholder="Repite la nueva contraseña" disabled>
+          </div>
+
+        </div>
+        <p id="errorSeguridad" class="error-msg"></p>
+        <p id="okSeguridad" class="ok-msg"></p>
+        <div class="seccion-acciones" id="accionesSeguridad" style="display:none;">
+          <button class="btn-cancelar-edit" onclick="cancelarEditar('seguridad')">Cancelar</button>
+          <button class="btn-guardar-edit" onclick="guardarSeguridad()">Actualizar contraseña</button>
+        </div>
+      </section>
+
+    </div>
+  </div>
+
   <script src="../Scripts/barraNav.js"></script>
+  <script src="../Scripts/perfil.js"></script>
 </body>
 </html>

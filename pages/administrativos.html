@@ -3,8 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Institucion Educativa ABC</title>
+  <title>Administrativos - Institución Educativa ABC</title>
   <link rel="stylesheet" href="../Styles/Styles.css">
+  <link rel="stylesheet" href="../Styles/StylesAdmin.css">
 </head>
 <body>
 
@@ -14,10 +15,10 @@
     </div>
 
     <nav class="menuStudent">
-      <a href="#" class="nav-link active">Panel</a>
-      <a href="#" class="nav-link">Cursos</a>
-      <a href="#" class="nav-link">Docentes</a>
-      <a href="#" class="nav-link">Administrativos</a>
+      <a href="./principal.html" class="nav-link">Panel</a>
+      <a href="./Cursos.html" class="nav-link">Cursos</a>
+      <a href="./Docentes.html" class="nav-link">Docentes</a>
+      <a href="./administrativos.html" class="nav-link active">Administrativos</a>
     </nav>
 
     <div class="navControls">
@@ -33,12 +34,12 @@
           <div class="userAvatar">
             <img src="../images/ImagenPerfil.png" alt="Usuario">
           </div>
-          <span class="userName">Andres Castellanos</span>
+          <span class="userName" id="nombreSesion">Usuario</span>
           <span class="arrow">▲</span>
         </button>
 
         <div class="dropdown" id="dropdown">
-          <a href="#" class="dropItem">
+          <a href="./perfil.html" class="dropItem">
             <img src="../images/user.svg" class="dropIcon-img" alt="Mi perfil">
             Mi perfil
           </a>
@@ -47,8 +48,8 @@
             Ajustes
           </a>
           <div class="dropDivider"></div>
-          <a href="#" class="dropItem logout">
-            <img src="../images/logout.svg" class="dropIcon-img" alt="Ajustes">
+          <a href="../index.html" class="dropItem logout">
+            <img src="../images/logout.svg" class="dropIcon-img" alt="Cerrar sesión">
             Cerrar sesión
           </a>
         </div>
@@ -56,7 +57,103 @@
     </div>
   </header>
 
-  <script src="../Scripts/admins.js"></script>
+  <div class="pagina">
+
+    <div class="pagina-header">
+      <div>
+        <h2>Gestión de Administrativos</h2>
+        <p class="pagina-subtitulo">Crea, edita y administra el personal administrativo de la institución.</p>
+      </div>
+      <button class="btn-nuevo" onclick="abrirFormulario()">+ Nuevo Administrativo</button>
+    </div>
+
+    <!-- Barra de búsqueda -->
+    <div class="barra-busqueda">
+      <input type="text" id="busqueda" placeholder="🔍  Buscar por nombre, email..." oninput="filtrarTabla()">
+      <span class="contador" id="contador">0 registros</span>
+    </div>
+
+    <!-- Tabla -->
+    <div class="tabla-wrapper">
+      <table id="tablaAdmins">
+        <thead>
+          <tr>
+            <th>Identificación</th>
+            <th>Nombres</th>
+            <th>Apellidos</th>
+            <th>Email</th>
+            <th>Teléfono</th>
+            <th>Cargo</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody id="filasAdmins"></tbody>
+      </table>
+    </div>
+
+  </div>
+
+  <!-- Modal formulario -->
+  <div class="modal-overlay" id="modalOverlay" onclick="cerrarModalOverlay(event)">
+    <div class="modal" id="modal">
+
+      <div class="modal-header">
+        <h3 id="tituloModal">Nuevo Administrativo</h3>
+        <button class="modal-close" onclick="cerrarFormulario()">✕</button>
+      </div>
+
+      <div class="modal-body">
+        <input type="hidden" id="indiceEditar" value="-1">
+
+         <div class="form-group">
+            <label for="nombres">Nombres <span class="req">*</span></label>
+            <input type="text" id="nombres" placeholder="Carlos Andrés">
+          </div>
+           <div class="form-group">
+            <label for="apellidos">Apellidos <span class="req">*</span></label>
+            <input type="text" id="apellidos" placeholder="Martínez López">
+          </div>
+
+        <div class="form-grid">
+          <div class="form-group">
+            <label for="identificacion">Identificación <span class="req">*</span></label>
+            <input type="text" id="identificacion" placeholder="1098765432">
+          </div>
+
+          <input type="hidden" id="cargo" value="Administrativo">
+
+          <div class="form-group">
+            <label for="email">Email <span class="req">*</span></label>
+            <input type="email" id="email" placeholder="correo@abc.edu.co">
+          </div>
+
+          <div class="form-group">
+            <label for="telefono">Teléfono <span class="req">*</span></label>
+            <input type="text" id="telefono" placeholder="3001234567">
+          </div>
+
+          <div class="form-group form-group--full">
+            <label for="contrasena">Contraseña de acceso <span class="req">*</span></label>
+            <div class="input-pass">
+              <input type="password" id="contrasena" placeholder="Mínimo 6 caracteres">
+              <button type="button" class="toggle-pass" onclick="togglePass()">👁</button>
+            </div>
+            <small class="hint">Esta contraseña le permitirá iniciar sesión como <strong>coordinador</strong>.</small>
+          </div>
+        </div>
+
+        <p id="errorAdmin" class="error-msg"></p>
+      </div>
+
+      <div class="modal-footer">
+        <button class="btn-cancelar" onclick="cerrarFormulario()">Cancelar</button>
+        <button class="btn-guardar" onclick="guardar()">Guardar</button>
+      </div>
+
+    </div>
+  </div>
+
   <script src="../Scripts/barraNav.js"></script>
+  <script src="../Scripts/admins.js"></script>
 </body>
 </html>
