@@ -26,15 +26,16 @@ function cambiarRol(rol, boton) {
   // Poner clase activo al botón clickeado
   boton.classList.add("activo");
 
-  // Mostrar el rol activo en el formulario
-  var nombres = {
-    estudiante:  "Estudiante",
-    docente:     "Docente",
-    coordinador: "Coordinador",
-  };
-
-  document.getElementById("rol-activo").innerHTML =
-    "Iniciando como: <strong>" + nombres[rol] + "</strong>";
+  // Mostrar el rol activo en el formulario (solo si el elemento existe)
+  var elementoRol = document.getElementById("rol-activo");
+  if (elementoRol != null) {
+    var nombres = {
+      estudiante:  "Estudiante",
+      docente:     "Docente",
+      coordinador: "Coordinador",
+    };
+    elementoRol.innerHTML = "Iniciando como: <strong>" + nombres[rol] + "</strong>";
+  }
 
   // Limpiar campos y error
   document.getElementById("correo").value = "";
