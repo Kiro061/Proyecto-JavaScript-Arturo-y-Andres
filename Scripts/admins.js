@@ -9,12 +9,7 @@ if (localStorage.getItem("administrativos") != null) {
 mostrarTabla();
 actualizarContador();
 
-// Mostrar nombre del usuario en sesión
-var sesion = JSON.parse(localStorage.getItem("sesion"));
-if (sesion) {
-    var elNombre = document.getElementById("nombreSesion");
-    if (elNombre) elNombre.textContent = sesion.nombre;
-}
+
 
 // ── MODAL ────────────────────────────────────────
 function abrirFormulario() {

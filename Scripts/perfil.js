@@ -91,7 +91,7 @@ function cancelarEditar(seccion) {
     });
 
     document.getElementById("acciones" + capitalizar(seccion)).style.display = "none";
-    document.getElementById("btnEditar" + capitalizar(seccion)).textContent = "✏️ Editar";
+    document.getElementById("btnEditar" + capitalizar(seccion)).textContent = " Editar";
     estadoEdicion[seccion] = false;
 
     // Limpiar errores seguridad
@@ -126,7 +126,7 @@ function guardarSeccion(seccion) {
         document.getElementById(id).disabled = true;
     });
     document.getElementById("acciones" + capitalizar(seccion)).style.display = "none";
-    document.getElementById("btnEditar" + capitalizar(seccion)).textContent = "✏️ Editar";
+    document.getElementById("btnEditar" + capitalizar(seccion)).textContent = " Editar";
     estadoEdicion[seccion] = false;
 }
 
@@ -178,10 +178,10 @@ function guardarSeguridad() {
         document.getElementById(id).disabled = true;
     });
     document.getElementById("accionesSeguridad").style.display = "none";
-    document.getElementById("btnEditarSeguridad").textContent = "✏️ Editar";
+    document.getElementById("btnEditarSeguridad").textContent = " Editar";
     estadoEdicion.seguridad = false;
 
-    okEl.textContent = "✅ Contraseña actualizada correctamente.";
+    okEl.textContent = " Contraseña actualizada correctamente.";
 }
 
 // ── UTILIDADES ────────────────────────────────────
