@@ -1,3 +1,11 @@
+// ── Protección de ruta ─────────────────────────────────
+(function () {
+  var sesionActual = localStorage.getItem("sesion");
+  if (!sesionActual) {
+    window.location.replace("../pages/Login.html");
+  }
+})();
+
 // ── Dropdown del menú de usuario ──────────────────────
 const userBtn = document.getElementById("userBtn");
 const dropdown = document.getElementById("dropdown");
@@ -28,3 +36,20 @@ document.querySelectorAll(".nav-link").forEach(link => {
     this.classList.add("active");
   });
 });
+
+// ── Nombre del usuario en sesión ───────────────────────
+var sesion = JSON.parse(localStorage.getItem("sesion"));
+var spanNombre = document.getElementById("nombreSesion");
+if (spanNombre && sesion) {
+  spanNombre.textContent = sesion.nombre;
+}
+
+// ── Cerrar sesión ──────────────────────────────────────
+var btnLogout = document.getElementById("btnLogout");
+if (btnLogout) {
+  btnLogout.addEventListener("click", function (e) {
+    e.preventDefault();
+    localStorage.removeItem("sesion");
+    window.location.href = "../pages/Login.html";
+  });
+}

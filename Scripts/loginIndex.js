@@ -8,7 +8,7 @@ var usuariosPorDefecto = [
   { correo: "admin@abc.edu.co",      contrasena: "admin123", rol: "coordinador", nombre: "Coordinador" },
 ];
 
-// Guardar usuarios en localStorage si no existen
+// Guardar usuarios por defecto solo si no existen aún
 if (!localStorage.getItem("usuarios")) {
   localStorage.setItem("usuarios", JSON.stringify(usuariosPorDefecto));
 }
@@ -74,6 +74,11 @@ function iniciarSesion() {
     rol:    usuario.rol,
   }));
 
-  // Aquí luego redirigirías al principal según el rol:
-   window.location.href = "./pages/principal.html";
+  // Redirigir según el rol
+  if (usuario.rol === "coordinador") {
+    window.location.href = "./principal.html";
+  } else {
+    // Estudiantes y docentes van al catálogo público
+    window.location.href = "../Index.html";
+  }
 }
