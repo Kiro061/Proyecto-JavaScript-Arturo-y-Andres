@@ -59,7 +59,7 @@
 
   <div class="perfil-page">
 
-    <!-- Hero / cabecera del perfil -->
+    <!-- Cabecera del perfil -->
     <div class="perfil-hero">
       <div class="hero-banner"></div>
       <div class="hero-info">
@@ -79,35 +79,29 @@
       <section class="card-seccion">
         <div class="seccion-header">
           <h2>Información Personal</h2>
-          <button class="btn-editar-seccion" id="btnEditarPersonal" onclick="toggleEditar('personal')"> Editar</button>
+          <button class="btn-editar-seccion" id="btnEditarPersonal" onclick="toggleEditar('personal')">Editar</button>
         </div>
         <div class="campos-grid" id="grupoPersonal">
-
           <div class="campo-grupo">
             <label>Nombre completo</label>
             <input type="text" id="nombreCompleto" placeholder="Ingresa tu nombre completo" disabled>
           </div>
-
           <div class="campo-grupo">
             <label>Correo electrónico</label>
             <input type="email" id="correo" placeholder="correo@abc.edu.co" disabled>
           </div>
-
           <div class="campo-grupo">
             <label>Teléfono</label>
             <input type="text" id="telefono" placeholder="3001234567" disabled>
           </div>
-
           <div class="campo-grupo">
             <label>Dirección</label>
             <input type="text" id="direccion" placeholder="Calle 123 # 45-67, Ciudad" disabled>
           </div>
-
           <div class="campo-grupo">
             <label>Fecha de nacimiento</label>
             <input type="date" id="fechaNacimiento" disabled>
           </div>
-
           <div class="campo-grupo">
             <label>Género</label>
             <select id="genero" disabled>
@@ -118,7 +112,6 @@
               <option value="Prefiero no decir">Prefiero no decir</option>
             </select>
           </div>
-
         </div>
         <div class="seccion-acciones" id="accionesPersonal" style="display:none;">
           <button class="btn-cancelar-edit" onclick="cancelarEditar('personal')">Cancelar</button>
@@ -126,39 +119,33 @@
         </div>
       </section>
 
-      <!-- Información Académica / Institucional -->
+      <!-- Información Institucional -->
       <section class="card-seccion">
         <div class="seccion-header">
           <h2>Información Institucional</h2>
-          <button class="btn-editar-seccion" id="btnEditarInstitucional" onclick="toggleEditar('institucional')"> Editar</button>
+          <button class="btn-editar-seccion" id="btnEditarInstitucional" onclick="toggleEditar('institucional')">Editar</button>
         </div>
         <div class="campos-grid" id="grupoInstitucional">
-
           <div class="campo-grupo">
             <label>Identificación</label>
             <input type="text" id="identificacion" placeholder="Número de identificación" disabled>
           </div>
-
           <div class="campo-grupo">
             <label>Rol en la institución</label>
             <input type="text" id="rolInstitucion" placeholder="—" disabled>
           </div>
-
           <div class="campo-grupo">
             <label>Código / ID institucional</label>
             <input type="text" id="codigoInstitucional" placeholder="Ej. EST-001" disabled>
           </div>
-
           <div class="campo-grupo">
             <label>Área / Grado</label>
             <input type="text" id="areaGrado" placeholder="Ej. Grado 10° / Informática" disabled>
           </div>
-
           <div class="campo-grupo">
             <label>Fecha de ingreso</label>
             <input type="date" id="fechaIngreso" disabled>
           </div>
-
           <div class="campo-grupo">
             <label>Estado</label>
             <select id="estadoUsuario" disabled>
@@ -167,7 +154,6 @@
               <option value="En proceso">En proceso</option>
             </select>
           </div>
-
         </div>
         <div class="seccion-acciones" id="accionesInstitucional" style="display:none;">
           <button class="btn-cancelar-edit" onclick="cancelarEditar('institucional')">Cancelar</button>
@@ -179,25 +165,21 @@
       <section class="card-seccion">
         <div class="seccion-header">
           <h2>Seguridad</h2>
-          <button class="btn-editar-seccion" id="btnEditarSeguridad" onclick="toggleEditar('seguridad')"> Editar</button>
+          <button class="btn-editar-seccion" id="btnEditarSeguridad" onclick="toggleEditar('seguridad')">Editar</button>
         </div>
         <div class="campos-grid" id="grupoSeguridad">
-
           <div class="campo-grupo">
             <label>Contraseña actual</label>
             <input type="password" id="passActual" placeholder="••••••••" disabled>
           </div>
-
           <div class="campo-grupo">
             <label>Nueva contraseña</label>
             <input type="password" id="passNueva" placeholder="Mínimo 6 caracteres" disabled>
           </div>
-
           <div class="campo-grupo">
             <label>Confirmar nueva contraseña</label>
             <input type="password" id="passConfirmar" placeholder="Repite la nueva contraseña" disabled>
           </div>
-
         </div>
         <p id="errorSeguridad" class="error-msg"></p>
         <p id="okSeguridad" class="ok-msg"></p>

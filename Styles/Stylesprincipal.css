@@ -1,233 +1,267 @@
-/* ══════════════════════════════════════════════════
-   StylesPrincipal.css
-   Estilos del panel / dashboard del coordinador
-   ══════════════════════════════════════════════════ */
+/* StylesPrincipal.css - Estilos del dashboard */
 
-   .dashboard {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 32px 24px 60px;
-  }
-  
-  /* ── Bienvenida ─────────────────────────────────── */
-  .bienvenida {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 16px;
-    margin-bottom: 32px;
-  }
-  .bienvenida-titulo {
-    font-size: 1.6rem;
-    font-weight: 700;
-    color: #092635;
-    margin: 0 0 6px;
-  }
-  .bienvenida-sub {
-    font-size: 0.92rem;
-    color: #5C8374;
-    margin: 0;
-  }
-  .btn-ver-catalogo {
-    background: #1B4242;
-    color: #9EC8B9;
-    text-decoration: none;
-    padding: 9px 20px;
-    border-radius: 8px;
-    font-size: 0.88rem;
-    font-weight: 700;
-    transition: background 0.2s;
-    white-space: nowrap;
-  }
-  .btn-ver-catalogo:hover { background: #092635; color: #fff; }
-  
-  /* ── Tarjetas de resumen ────────────────────────── */
-  .cards-resumen {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
-    gap: 16px;
-    margin-bottom: 28px;
-  }
-  .card-stat {
-    background: #fff;
-    border-radius: 14px;
-    box-shadow: 0 2px 10px rgba(9,38,53,0.07);
-    padding: 20px 18px 16px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    transition: transform 0.18s, box-shadow 0.18s;
-  }
-  .card-stat:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 6px 20px rgba(9,38,53,0.12);
-  }
-  .card-stat-icon {
-    width: 44px;
-    height: 44px;
-    border-radius: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.4rem;
-  }
-  .card-stat-info {
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
-  }
-  .card-stat-numero {
-    font-size: 2rem;
-    font-weight: 700;
-    color: #092635;
-    line-height: 1;
-  }
-  .card-stat-label {
-    font-size: 0.8rem;
-    font-weight: 600;
-    color: #5C8374;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-  }
-  .card-stat-link {
-    font-size: 0.78rem;
-    font-weight: 700;
-    color: #1B4242;
-    text-decoration: none;
-    margin-top: auto;
-  }
-  .card-stat-link:hover { text-decoration: underline; }
-  
-  /* ── Fila inferior ──────────────────────────────── */
+.dashboard {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 32px 24px 60px;
+}
+
+/* Bienvenida */
+.bienvenida {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.bienvenida-titulo {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #092635;
+  margin: 0 0 6px;
+}
+
+.bienvenida-sub {
+  font-size: 0.92rem;
+  color: #5C8374;
+  margin: 0;
+}
+
+.btn-ver-catalogo {
+  background: #1B4242;
+  color: #9EC8B9;
+  text-decoration: none;
+  padding: 9px 20px;
+  border-radius: 8px;
+  font-size: 0.88rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.btn-ver-catalogo:hover {
+  background: #092635;
+  color: #fff;
+}
+
+/* Tarjetas de resumen */
+.cards-resumen {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+  gap: 16px;
+  margin-bottom: 28px;
+}
+
+.card-stat {
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 2px 10px rgba(9,38,53,0.07);
+  padding: 20px 18px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.card-stat:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(9,38,53,0.12);
+}
+
+.card-stat-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+}
+
+.card-stat-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.card-stat-numero {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #092635;
+  line-height: 1;
+}
+
+.card-stat-label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #5C8374;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.card-stat-link {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #1B4242;
+  text-decoration: none;
+  margin-top: auto;
+}
+
+.card-stat-link:hover {
+  text-decoration: underline;
+}
+
+/* Fila inferior */
+.dashboard-fila {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 20px;
+}
+
+@media (max-width: 860px) {
   .dashboard-fila {
-    display: grid;
-    grid-template-columns: 1fr 340px;
-    gap: 20px;
+    grid-template-columns: 1fr;
   }
-  @media (max-width: 860px) {
-    .dashboard-fila { grid-template-columns: 1fr; }
-  }
-  
-  /* ── Paneles ────────────────────────────────────── */
-  .panel {
-    background: #fff;
-    border-radius: 14px;
-    box-shadow: 0 2px 10px rgba(9,38,53,0.07);
-    padding: 22px 22px 18px;
-  }
-  .panel-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 16px;
-  }
-  .panel-titulo {
-    font-size: 1rem;
-    font-weight: 700;
-    color: #092635;
-    margin: 0;
-  }
-  .panel-link {
-    font-size: 0.8rem;
-    font-weight: 700;
-    color: #5C8374;
-    text-decoration: none;
-  }
-  .panel-link:hover { text-decoration: underline; }
-  
-  /* ── Lista de cursos recientes ──────────────────── */
-  .lista-cursos { display: flex; flex-direction: column; gap: 10px; }
-  
-  .curso-item {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    padding: 12px 14px;
-    border-radius: 10px;
-    background: #f7fbfa;
-    transition: background 0.15s;
-  }
-  .curso-item:hover { background: #eef6f3; }
-  
-  .curso-item-icono {
-    width: 36px;
-    height: 36px;
-    border-radius: 8px;
-    background: linear-gradient(135deg, #1B4242, #5C8374);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1rem;
-    flex-shrink: 0;
-  }
-  .curso-item-nombre {
-    font-size: 0.9rem;
-    font-weight: 700;
-    color: #092635;
-  }
-  .curso-item-docente {
-    font-size: 0.76rem;
-    color: #5C8374;
-    margin-top: 2px;
-  }
-  .curso-item-badge {
-    margin-left: auto;
-    font-size: 0.72rem;
-    font-weight: 700;
-    background: #eef6f4;
-    color: #1B4242;
-    padding: 3px 9px;
-    border-radius: 20px;
-    white-space: nowrap;
-  }
-  
-  .lista-vacia {
-    text-align: center;
-    padding: 28px 0;
-    color: #aac9c0;
-    font-size: 0.88rem;
-    font-weight: 600;
-  }
-  
-  /* ── Accesos rápidos ────────────────────────────── */
-  .accesos-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 12px;
-  }
-  .acceso-btn {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    padding: 18px 10px;
-    border-radius: 12px;
-    background: #f0f6f5;
-    text-decoration: none;
-    color: #1B4242;
-    font-size: 0.82rem;
-    font-weight: 700;
-    text-align: center;
-    transition: background 0.18s, transform 0.18s;
-  }
-  .acceso-btn:hover {
-    background: #e0eeea;
-    transform: translateY(-2px);
-  }
-  .acceso-icono { font-size: 1.6rem; }
-  
-  /* ── Dark mode ──────────────────────────────────── */
-  body.dark-mode .bienvenida-titulo   { color: #9EC8B9; }
-  body.dark-mode .card-stat           { background: #1B4242; }
-  body.dark-mode .card-stat-numero    { color: #9EC8B9; }
-  body.dark-mode .card-stat-link      { color: #9EC8B9; }
-  body.dark-mode .panel               { background: #1B4242; }
-  body.dark-mode .panel-titulo        { color: #9EC8B9; }
-  body.dark-mode .curso-item          { background: rgba(9,38,53,0.3); }
-  body.dark-mode .curso-item:hover    { background: rgba(9,38,53,0.5); }
-  body.dark-mode .curso-item-nombre   { color: #9EC8B9; }
-  body.dark-mode .curso-item-badge    { background: rgba(92,131,116,0.2); color: #9EC8B9; }
-  body.dark-mode .acceso-btn          { background: rgba(9,38,53,0.35); color: #9EC8B9; }
-  body.dark-mode .acceso-btn:hover    { background: rgba(9,38,53,0.55); }
+}
+
+/* Paneles */
+.panel {
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 2px 10px rgba(9,38,53,0.07);
+  padding: 22px 22px 18px;
+}
+
+.panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.panel-titulo {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #092635;
+  margin: 0;
+}
+
+.panel-link {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #5C8374;
+  text-decoration: none;
+}
+
+.panel-link:hover {
+  text-decoration: underline;
+}
+
+/* Lista de cursos recientes */
+.lista-cursos {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.curso-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 14px;
+  border-radius: 10px;
+  background: #f7fbfa;
+}
+
+.curso-item:hover {
+  background: #eef6f3;
+}
+
+.curso-item-icono {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #1B4242, #5C8374);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+.curso-item-nombre {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #092635;
+}
+
+.curso-item-docente {
+  font-size: 0.76rem;
+  color: #5C8374;
+  margin-top: 2px;
+}
+
+.curso-item-badge {
+  margin-left: auto;
+  font-size: 0.72rem;
+  font-weight: 700;
+  background: #eef6f4;
+  color: #1B4242;
+  padding: 3px 9px;
+  border-radius: 20px;
+  white-space: nowrap;
+}
+
+.lista-vacia {
+  text-align: center;
+  padding: 28px 0;
+  color: #aac9c0;
+  font-size: 0.88rem;
+  font-weight: 600;
+}
+
+/* Accesos rápidos */
+.accesos-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.acceso-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 18px 10px;
+  border-radius: 12px;
+  background: #f0f6f5;
+  text-decoration: none;
+  color: #1B4242;
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+.acceso-btn:hover {
+  background: #e0eeea;
+  transform: translateY(-2px);
+}
+
+.acceso-icono {
+  font-size: 1.6rem;
+}
+
+/* Dark mode */
+body.dark-mode .bienvenida-titulo { color: #9EC8B9; }
+body.dark-mode .card-stat         { background: #1B4242; }
+body.dark-mode .card-stat-numero  { color: #9EC8B9; }
+body.dark-mode .card-stat-link    { color: #9EC8B9; }
+body.dark-mode .panel             { background: #1B4242; }
+body.dark-mode .panel-titulo      { color: #9EC8B9; }
+body.dark-mode .curso-item        { background: rgba(9,38,53,0.3); }
+body.dark-mode .curso-item:hover  { background: rgba(9,38,53,0.5); }
+body.dark-mode .curso-item-nombre { color: #9EC8B9; }
+body.dark-mode .curso-item-badge  { background: rgba(92,131,116,0.2); color: #9EC8B9; }
+body.dark-mode .acceso-btn        { background: rgba(9,38,53,0.35); color: #9EC8B9; }
+body.dark-mode .acceso-btn:hover  { background: rgba(9,38,53,0.55); }
