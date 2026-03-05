@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <link rel="icon" type="image/png" href="/./images/favicon/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="/./images/favicon/favicon.svg" />
+  <link rel="shortcut icon" href="/./images/favicon/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/./images/favicon/apple-touch-icon.png" />
+  <link rel="manifest" href="/./images/favicon/site.webmanifest" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Catálogo de Cursos — Institución Educativa ABC</title>
+  <link rel="stylesheet" href="./Styles/Styles.css" />
+  <link rel="stylesheet" href="./Styles/StylesIndex.css" />
+</head>
+<body>
+
+  <!-- ── Navbar pública ────────────────────────────────── -->
+  <header class="barraNav">
+    <div class="logoBarra">
+      <img src="./images/logo_blanco.png" alt="Logo" class="logo">
+    </div>
+    <nav class="menuStudent">
+      <a href="./Index.html" class="nav-link active">Cursos</a>
+    </nav>
+    <div class="navControls">
+      <button class="btnTheme" id="btnTheme" title="Cambiar tema">🌙</button>
+      <a href="./pages/Login.html" class="btn-login-nav"> Iniciar sesión</a>
+    </div>
+  </header>
+
+  <!-- ── Hero ──────────────────────────────────────────── -->
+  <section class="hero">
+    <img src="./images/logo_blanco.png" alt="Logo" class="hero-logo">
+    <h1>Catálogo de Cursos</h1>
+    <p>Explora nuestra oferta académica. Acceso libre para toda la comunidad.</p>
+    <div class="search-wrap">
+      <input type="text" id="busqueda" placeholder="🔍  Buscar curso o docente..." oninput="filtrar()" />
+      <select id="filtroArea" onchange="filtrar()">
+        <option value="">Todas las áreas</option>
+      </select>
+    </div>
+  </section>
+
+  <p class="resultado-info" id="infoResultados"></p>
+
+  <!-- ── Grid de cursos ────────────────────────────────── -->
+  <div class="grid-cursos" id="gridCursos"></div>
+
+  <!-- ── Modal detalle ─────────────────────────────────── -->
+  <div class="modal-overlay" id="modalOverlay" onclick="cerrarModal(event)">
+    <div class="modal" id="modal">
+      <div class="modal-header">
+        <p class="modal-codigo" id="mCodigo"></p>
+        <h2 class="modal-titulo" id="mNombre"></h2>
+        <button class="btn-cerrar" onclick="cerrarModalBtn()">✕</button>
+      </div>
+      <div class="modal-body">
+        <div class="modal-docente-card" id="mDocenteCard"></div>
+        <p class="modal-desc" id="mDescripcion"></p>
+        <p class="modulos-titulo">Módulos del curso</p>
+        <div id="mModulos"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="./Scripts/ScriptIndex.js"></script>
+</body>
+</html>

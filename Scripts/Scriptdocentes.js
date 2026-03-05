@@ -90,7 +90,29 @@ function editar(i) {
 }
 
 function eliminar(i) {
-    var confirmar = confirm("¿Seguro que quieres eliminar este docente?");
+    var docente = docentes[i];
+    var nombreDocente = docente.nombres + " " + docente.apellidos;
+
+    // Verificar si el docente está asignado a algún curso
+    var cursos = [];
+    if (localStorage.getItem("cursos") != null) {
+        cursos = JSON.parse(localStorage.getItem("cursos"));
+    }
+
+    var cursosAsignados = cursos.filter(function(c) {
+        return c.docente === nombreDocente;
+    });
+
+    if (cursosAsignados.length > 0) {
+        var nombresCursos = cursosAsignados.map(function(c) { return "\"" + c.nombre + "\""; }).join(", ");
+        alert(
+            "No se puede eliminar a " + nombreDocente + " porque está asignado al siguiente curso:\n\n" +
+            nombresCursos + "\n\nPrimero reasigna o elimina ese curso."
+        );
+        return;
+    }
+
+    var confirmar = confirm("¿Seguro que quieres eliminar a " + nombreDocente + "?");
     if (confirmar) {
         docentes.splice(i, 1);
         localStorage.setItem("docentes", JSON.stringify(docentes));

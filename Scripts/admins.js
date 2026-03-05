@@ -178,7 +178,7 @@ function mostrarTabla(lista) {
             "<td>" + a.apellidos + "</td>" +
             "<td>" + a.email + "</td>" +
             "<td>" + a.telefono + "</td>" +
-            "<td><span class='badge-cargo'>Administrativo</span></td>" +
+            "<td><span class='badge-cargo'>" + (a.cargo || "Sin cargo") + "</span></td>" +
             "<td>" +
                 "<button class='btn-editar' onclick='editar(" + indiceReal + ")'>Editar</button>" +
                 "<button class='btn-eliminar' onclick='eliminar(" + indiceReal + ")'>Eliminar</button>" +

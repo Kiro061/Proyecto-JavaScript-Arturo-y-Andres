@@ -10,6 +10,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Institucion Educativa ABC</title>
   <link rel="stylesheet" href="../Styles/Styles.css">
+  <link rel="stylesheet" href="../Styles/Stylesprincipal.css">
 </head>
 <body>
 
@@ -38,7 +39,7 @@
           <div class="userAvatar">
             <img src="../images/ImagenPerfil.png" alt="Usuario">
           </div>
-          <span class="userName"></span>
+          <span class="userName" id="nombreSesion">Usuario</span>
           <span class="arrow">▲</span>
         </button>
 
@@ -52,7 +53,7 @@
             Ajustes
           </a>
           <div class="dropDivider"></div>
-          <a href="#" class="dropItem logout">
+          <a href="#" class="dropItem logout" id="btnLogout">
             <img src="../images/logout.svg" class="dropIcon-img" alt="Ajustes">
             Cerrar sesión
           </a>
@@ -61,6 +62,103 @@
     </div>
   </header>
 
+  <!-- ── Dashboard ─────────────────────────────────── -->
+  <main class="dashboard">
+
+    <!-- Bienvenida -->
+    <div class="bienvenida">
+      <div>
+        <h1 class="bienvenida-titulo">Bienvenido, <span id="nombreBienvenida">coordinador</span> 👋</h1>
+        <p class="bienvenida-sub">Aquí tienes un resumen del estado actual de la plataforma.</p>
+      </div>
+      <a href="../Index.html" class="btn-ver-catalogo">Ver catálogo público →</a>
+    </div>
+
+    <!-- Tarjetas de resumen -->
+    <div class="cards-resumen">
+      <div class="card-stat">
+        <div class="card-stat-icon" style="background:#e8f4f0;">📚</div>
+        <div class="card-stat-info">
+          <span class="card-stat-numero" id="totalCursos">0</span>
+          <span class="card-stat-label">Cursos</span>
+        </div>
+        <a href="./Cursos.html" class="card-stat-link">Gestionar →</a>
+      </div>
+      <div class="card-stat">
+        <div class="card-stat-icon" style="background:#e8f0f4;">🧩</div>
+        <div class="card-stat-info">
+          <span class="card-stat-numero" id="totalModulos">0</span>
+          <span class="card-stat-label">Módulos</span>
+        </div>
+        <a href="./Cursos.html" class="card-stat-link">Gestionar →</a>
+      </div>
+      <div class="card-stat">
+        <div class="card-stat-icon" style="background:#f0f4e8;">📝</div>
+        <div class="card-stat-info">
+          <span class="card-stat-numero" id="totalLecciones">0</span>
+          <span class="card-stat-label">Lecciones</span>
+        </div>
+        <a href="./Cursos.html" class="card-stat-link">Gestionar →</a>
+      </div>
+      <div class="card-stat">
+        <div class="card-stat-icon" style="background:#f4ece8;">👨‍🏫</div>
+        <div class="card-stat-info">
+          <span class="card-stat-numero" id="totalDocentes">0</span>
+          <span class="card-stat-label">Docentes</span>
+        </div>
+        <a href="./Docentes.html" class="card-stat-link">Gestionar →</a>
+      </div>
+      <div class="card-stat">
+        <div class="card-stat-icon" style="background:#ece8f4;">🏢</div>
+        <div class="card-stat-info">
+          <span class="card-stat-numero" id="totalAdmins">0</span>
+          <span class="card-stat-label">Administrativos</span>
+        </div>
+        <a href="./administrativos.html" class="card-stat-link">Gestionar →</a>
+      </div>
+    </div>
+
+    <!-- Fila inferior: cursos recientes + accesos rápidos -->
+    <div class="dashboard-fila">
+
+      <!-- Cursos recientes -->
+      <div class="panel">
+        <div class="panel-header">
+          <h2 class="panel-titulo">Cursos recientes</h2>
+          <a href="./Cursos.html" class="panel-link">Ver todos</a>
+        </div>
+        <div id="listaCursosRecientes" class="lista-cursos"></div>
+      </div>
+
+      <!-- Accesos rápidos -->
+      <div class="panel">
+        <div class="panel-header">
+          <h2 class="panel-titulo">Accesos rápidos</h2>
+        </div>
+        <div class="accesos-grid">
+          <a href="./Cursos.html" class="acceso-btn">
+            <span class="acceso-icono">📚</span>
+            <span>Nuevo curso</span>
+          </a>
+          <a href="./Docentes.html" class="acceso-btn">
+            <span class="acceso-icono">👨‍🏫</span>
+            <span>Nuevo docente</span>
+          </a>
+          <a href="./administrativos.html" class="acceso-btn">
+            <span class="acceso-icono">🏢</span>
+            <span>Nuevo admin</span>
+          </a>
+          <a href="../Index.html" class="acceso-btn">
+            <span class="acceso-icono">🌐</span>
+            <span>Catálogo</span>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <script src="../Scripts/Scriptsprincipal.js"></script>
   <script src="../Scripts/Scripts.js"></script>
   <script src="../Scripts/barraNav.js"></script>
 </body>

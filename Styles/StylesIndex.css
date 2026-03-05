@@ -1,0 +1,443 @@
+/* ══════════════════════════════════════════════════
+   StylesCatalogo.css
+   Estilos para la página pública de cursos
+   ══════════════════════════════════════════════════ */
+
+/* ── Botón login en navbar ──────────────────────── */
+.btn-login-nav {
+    background: rgba(9, 38, 53, 0.35);
+    border: 1px solid #5C8374;
+    color: #9EC8B9;
+    text-decoration: none;
+    padding: 7px 16px;
+    border-radius: 7px;
+    font-size: 0.88rem;
+    font-weight: 700;
+    font-family: 'Nunito', sans-serif;
+    transition: background 0.2s;
+  }
+  .btn-login-nav:hover {
+    background: rgba(92, 131, 116, 0.3);
+  }
+  
+  /* ── Hero ───────────────────────────────────────── */
+  .hero {
+    background: linear-gradient(135deg, #092635 0%, #1B4242 50%, #5C8374 100%);
+    color: #fff;
+    padding: 64px 32px 48px;
+    text-align: center;
+  }
+  .hero-logo {
+    height: 52px;
+    margin-bottom: 20px;
+    filter: brightness(0) invert(1);
+  }
+  .hero h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin: 0 0 10px;
+    color: #fff;
+  }
+  .hero p {
+    font-size: 1rem;
+    color: #9EC8B9;
+    margin: 0 0 28px;
+  }
+  
+  /* ── Barra de búsqueda ──────────────────────────── */
+  .search-wrap {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .search-wrap input {
+    width: 340px;
+    max-width: 90vw;
+    padding: 11px 18px;
+    border-radius: 8px;
+    border: none;
+    font-family: 'Nunito', sans-serif;
+    font-size: 0.95rem;
+    outline: none;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  }
+  .search-wrap select {
+    padding: 11px 14px;
+    border-radius: 8px;
+    border: none;
+    font-family: 'Nunito', sans-serif;
+    font-size: 0.95rem;
+    background: #fff;
+    cursor: pointer;
+    outline: none;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  }
+  
+  /* ── Contador de resultados ─────────────────────── */
+  .resultado-info {
+    max-width: 1100px;
+    margin: 28px auto 0;
+    padding: 0 24px;
+    font-size: 0.88rem;
+    color: #5C8374;
+    font-weight: 600;
+  }
+  
+  /* ── Grid de cursos ─────────────────────────────── */
+  .grid-cursos {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 22px;
+    max-width: 1100px;
+    margin: 16px auto 60px;
+    padding: 0 24px;
+  }
+  
+  /* ── Tarjeta de curso ───────────────────────────── */
+  .card-curso {
+    background: #fff;
+    border-radius: 14px;
+    box-shadow: 0 2px 14px rgba(9, 38, 53, 0.09);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.18s, box-shadow 0.18s;
+    cursor: pointer;
+  }
+  .card-curso:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 28px rgba(9, 38, 53, 0.15);
+  }
+  .card-banner {
+    height: 8px;
+    background: linear-gradient(90deg, #1B4242, #5C8374);
+  }
+  .card-body {
+    padding: 22px 22px 16px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .card-codigo {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #5C8374;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+  .card-nombre {
+    font-size: 1.08rem;
+    font-weight: 700;
+    color: #092635;
+    margin: 0;
+    line-height: 1.35;
+  }
+  .card-descripcion {
+    font-size: 0.88rem;
+    color: #4b6a64;
+    line-height: 1.5;
+    flex: 1;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .card-docente {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 6px;
+  }
+  .docente-avatar {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #9EC8B9;
+    flex-shrink: 0;
+  }
+  .docente-nombre {
+    font-size: 0.83rem;
+    font-weight: 600;
+    color: #1B4242;
+  }
+  .docente-area {
+    font-size: 0.75rem;
+    color: #5C8374;
+  }
+  .card-footer {
+    padding: 12px 22px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 1px solid #eef4f2;
+  }
+  .badge-modulos {
+    font-size: 0.78rem;
+    font-weight: 700;
+    background: #eef6f4;
+    color: #1B4242;
+    padding: 4px 10px;
+    border-radius: 20px;
+  }
+  .btn-ver {
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: #fff;
+    background: #1B4242;
+    border: none;
+    padding: 7px 16px;
+    border-radius: 7px;
+    cursor: pointer;
+    transition: background 0.2s;
+    font-family: 'Nunito', sans-serif;
+  }
+  .btn-ver:hover {
+    background: #092635;
+  }
+  
+  /* ── Estado vacío ───────────────────────────────── */
+  .vacio {
+    text-align: center;
+    padding: 80px 24px;
+    color: #7aab9e;
+    grid-column: 1 / -1;
+  }
+  .vacio svg {
+    opacity: 0.35;
+    margin-bottom: 16px;
+  }
+  .vacio p {
+    font-size: 1rem;
+    font-weight: 600;
+    margin: 0;
+  }
+  
+  /* ── Modal detalle ──────────────────────────────── */
+  .modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(9, 38, 53, 0.55);
+    z-index: 3000;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+  }
+  .modal-overlay.activo {
+    display: flex;
+  }
+  .modal {
+    background: #fff;
+    border-radius: 16px;
+    max-width: 640px;
+    width: 100%;
+    max-height: 88vh;
+    overflow-y: auto;
+    box-shadow: 0 16px 48px rgba(9, 38, 53, 0.25);
+    animation: fadeUp 0.22s ease;
+  }
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .modal-header {
+    background: linear-gradient(135deg, #092635, #1B4242);
+    padding: 28px 28px 22px;
+    border-radius: 16px 16px 0 0;
+    position: relative;
+  }
+  .modal-codigo {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #9EC8B9;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 6px;
+  }
+  .modal-titulo {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: #fff;
+    margin: 0;
+  }
+  .btn-cerrar {
+    position: absolute;
+    top: 16px;
+    right: 18px;
+    background: rgba(255, 255, 255, 0.15);
+    border: none;
+    color: #fff;
+    font-size: 1.2rem;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s;
+  }
+  .btn-cerrar:hover {
+    background: rgba(255, 255, 255, 0.3);
+  }
+  .modal-body {
+    padding: 26px 28px 28px;
+  }
+  .modal-docente-card {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    background: #f0f8f5;
+    border-radius: 10px;
+    padding: 14px 16px;
+    margin-bottom: 20px;
+  }
+  .modal-docente-card img {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #9EC8B9;
+  }
+  .modal-docente-info strong {
+    font-size: 0.95rem;
+    color: #092635;
+    display: block;
+  }
+  .modal-docente-info span {
+    font-size: 0.8rem;
+    color: #5C8374;
+  }
+  .modal-desc {
+    font-size: 0.93rem;
+    color: #3a5a52;
+    line-height: 1.65;
+    margin-bottom: 24px;
+  }
+  .modulos-titulo {
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    color: #5C8374;
+    margin-bottom: 10px;
+  }
+  .modulo-item {
+    border: 1px solid #dceee9;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    overflow: hidden;
+  }
+  .modulo-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 16px;
+    background: #f7fbfa;
+    cursor: pointer;
+    gap: 10px;
+  }
+  .modulo-header:hover {
+    background: #eef6f3;
+  }
+  .modulo-nombre {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #1B4242;
+  }
+  .modulo-desc-short {
+    font-size: 0.78rem;
+    color: #7aab9e;
+  }
+  .modulo-toggle {
+    font-size: 0.75rem;
+    color: #5C8374;
+    transition: transform 0.2s;
+  }
+  .modulo-toggle.abierto {
+    transform: rotate(180deg);
+  }
+  .lecciones-lista {
+    display: none;
+    padding: 4px 16px 12px;
+    border-top: 1px solid #dceee9;
+    background: #fff;
+  }
+  .lecciones-lista.visible {
+    display: block;
+  }
+  .leccion-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 10px 0;
+    border-bottom: 1px solid #f0f6f4;
+  }
+  .leccion-item:last-child {
+    border-bottom: none;
+  }
+  .leccion-num {
+    min-width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: #1B4242;
+    color: #fff;
+    font-size: 0.72rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+  .leccion-titulo {
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: #092635;
+  }
+  .leccion-horas {
+    font-size: 0.75rem;
+    color: #5C8374;
+    margin-top: 2px;
+  }
+  .leccion-link {
+    font-size: 0.75rem;
+    color: #1B4242;
+    text-decoration: none;
+    font-weight: 700;
+    margin-top: 4px;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+  }
+  .leccion-link:hover {
+    text-decoration: underline;
+  }
+  .sin-lecciones {
+    font-size: 0.82rem;
+    color: #aac9c0;
+    padding: 8px 0;
+  }
+  
+  /* ── Dark mode ──────────────────────────────────── */
+  body.dark-mode .card-curso         { background: #1B4242; }
+  body.dark-mode .card-nombre        { color: #9EC8B9; }
+  body.dark-mode .card-descripcion   { color: #7aab9e; }
+  body.dark-mode .docente-nombre     { color: #9EC8B9; }
+  body.dark-mode .card-footer        { border-color: rgba(92, 131, 116, 0.2); }
+  body.dark-mode .badge-modulos      { background: rgba(92, 131, 116, 0.2); color: #9EC8B9; }
+  body.dark-mode .modal              { background: #1B4242; }
+  body.dark-mode .modal-desc         { color: #9EC8B9; }
+  body.dark-mode .modal-docente-card { background: rgba(9, 38, 53, 0.4); }
+  body.dark-mode .modal-docente-info strong { color: #9EC8B9; }
+  body.dark-mode .modulo-header      { background: rgba(9, 38, 53, 0.3); }
+  body.dark-mode .modulo-header:hover{ background: rgba(9, 38, 53, 0.5); }
+  body.dark-mode .modulo-nombre      { color: #9EC8B9; }
+  body.dark-mode .lecciones-lista    { background: rgba(9, 38, 53, 0.2); border-color: rgba(92, 131, 116, 0.25); }
+  body.dark-mode .modulo-item        { border-color: rgba(92, 131, 116, 0.25); }
+  body.dark-mode .leccion-titulo     { color: #9EC8B9; }
+  body.dark-mode .leccion-item       { border-color: rgba(92, 131, 116, 0.15); }
+  body.dark-mode .resultado-info     { color: #7aab9e; }
