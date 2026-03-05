@@ -28,3 +28,10 @@ document.querySelectorAll(".nav-link").forEach(link => {
     this.classList.add("active");
   });
 });
+
+// ── Nombre de sesión en navbar ─────────────────────
+var sesionNav = JSON.parse(localStorage.getItem("sesion"));
+if (sesionNav) {
+    var elNombreNav = document.querySelector(".userName");
+    if (elNombreNav) elNombreNav.textContent = sesionNav.nombre;
+}
