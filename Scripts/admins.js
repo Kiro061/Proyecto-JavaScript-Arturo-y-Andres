@@ -12,6 +12,12 @@ actualizarContador();
 
 
 // ── MODAL ────────────────────────────────────────
+
+// =============================================================
+// ABRIR FORMULARIO
+// Abre el modal en modo "creación". Limpia los campos, pone el
+// título "Nuevo Administrativo" y muestra el campo contraseña.
+// =============================================================
 function abrirFormulario() {
     document.getElementById("tituloModal").textContent = "Nuevo Administrativo";
     limpiar();
@@ -21,23 +27,51 @@ function abrirFormulario() {
     document.getElementById("contrasena").closest(".form-group").style.display = "";
 }
 
+// =============================================================
+// CERRAR FORMULARIO
+// Cierra el modal quitando la clase "activo" y limpia todos
+// los campos del formulario.
+// =============================================================
 function cerrarFormulario() {
     document.getElementById("modalOverlay").classList.remove("activo");
     limpiar();
 }
 
+// =============================================================
+// CERRAR MODAL AL HACER CLIC EN EL FONDO (OVERLAY)
+// Solo cierra el modal si el clic fue sobre el fondo oscuro,
+// no sobre el contenido del formulario.
+// =============================================================
 function cerrarModalOverlay(event) {
     if (event.target === document.getElementById("modalOverlay")) {
         cerrarFormulario();
     }
 }
 
+// =============================================================
+// MOSTRAR / OCULTAR CONTRASEÑA
+// Alterna el campo contraseña entre tipo "password" (oculto)
+// y tipo "text" (visible).
+// =============================================================
 function togglePass() {
     var input = document.getElementById("contrasena");
     input.type = input.type === "password" ? "text" : "password";
 }
 
 // ── GUARDAR ───────────────────────────────────────
+
+// =============================================================
+// GUARDAR ADMINISTRATIVO
+// Valida todos los campos y guarda un nuevo administrativo o
+// actualiza uno existente. Validaciones:
+//   - Campos obligatorios completos
+//   - Email con formato válido
+//   - Teléfono entre 7 y 15 dígitos numéricos
+//   - Contraseña mínimo 6 caracteres (solo al crear)
+//   - Email no duplicado
+// También sincroniza el registro con "usuarios" en localStorage
+// para habilitar el acceso al sistema como coordinador.
+// =============================================================
 function guardar() {
     var identificacion = document.getElementById("identificacion").value.trim();
     var nombres        = document.getElementById("nombres").value.trim();
@@ -116,7 +150,7 @@ function guardar() {
         var emailAnterior = administrativos[indice] ? administrativos[indice].email : null;
         var idxUsuario = usuarios.findIndex(function(u) {
             return u.correo === document.getElementById("email").value.trim() ||
-                   (emailAnterior && u.correo === emailAnterior);
+                (emailAnterior && u.correo === emailAnterior);
         });
 
         // Buscar por nombre completo anterior como fallback
@@ -153,6 +187,13 @@ function guardar() {
 }
 
 // ── MOSTRAR TABLA ─────────────────────────────────
+
+// =============================================================
+// MOSTRAR TABLA
+// Renderiza las filas HTML de la tabla. Si se pasa un arreglo
+// "lista" lo usa (para resultados de búsqueda); si no, usa el
+// arreglo global. Muestra mensaje especial si no hay registros.
+// =============================================================
 function mostrarTabla(lista) {
     var datos = lista !== undefined ? lista : administrativos;
     var filas = document.getElementById("filasAdmins");
@@ -188,6 +229,13 @@ function mostrarTabla(lista) {
 }
 
 // ── EDITAR ────────────────────────────────────────
+
+// =============================================================
+// EDITAR ADMINISTRATIVO
+// Abre el modal en modo "edición" precargando los datos del
+// registro seleccionado. Deja la contraseña en blanco para que
+// pueda mantenerse la actual si no se modifica.
+// =============================================================
 function editar(i) {
     var a = administrativos[i];
     document.getElementById("tituloModal").textContent = "Editar Administrativo";
@@ -208,6 +256,13 @@ function editar(i) {
 }
 
 // ── ELIMINAR ──────────────────────────────────────
+
+// =============================================================
+// ELIMINAR ADMINISTRATIVO
+// Pide confirmación y elimina el administrativo del arreglo y
+// de localStorage. También elimina su usuario de "usuarios"
+// en localStorage, revocando su acceso al sistema.
+// =============================================================
 function eliminar(i) {
     var a = administrativos[i];
     var confirmar = confirm("¿Seguro que quieres eliminar a " + a.nombres + " " + a.apellidos + "?\nTambién se eliminará su acceso al sistema.");
@@ -229,6 +284,14 @@ function eliminar(i) {
 }
 
 // ── BÚSQUEDA / FILTRO ─────────────────────────────
+
+// =============================================================
+// FILTRAR TABLA
+// Lee el texto del input de búsqueda y filtra por: nombres,
+// apellidos, email, cargo, identificación y teléfono (sin
+// distinguir mayúsculas). Si el campo está vacío, restaura
+// la tabla completa y el contador normal.
+// =============================================================
 function filtrarTabla() {
     var texto = document.getElementById("busqueda").value.toLowerCase();
 
@@ -254,12 +317,26 @@ function filtrarTabla() {
 }
 
 // ── CONTADOR ──────────────────────────────────────
+
+// =============================================================
+// ACTUALIZAR CONTADOR
+// Actualiza el texto del contador con el total de registros.
+// Usa "registro" en singular o "registros" en plural según
+// la cantidad.
+// =============================================================
 function actualizarContador() {
     var c = document.getElementById("contador");
     if (c) c.textContent = administrativos.length + (administrativos.length === 1 ? " registro" : " registros");
 }
 
 // ── LIMPIAR FORMULARIO ────────────────────────────
+
+// =============================================================
+// LIMPIAR FORMULARIO
+// Vacía todos los campos del formulario modal, resetea el índice
+// de edición a -1 (sin edición activa), borra el mensaje de
+// error y restaura el hint de contraseña al texto por defecto.
+// =============================================================
 function limpiar() {
     document.getElementById("identificacion").value  = "";
     document.getElementById("nombres").value          = "";

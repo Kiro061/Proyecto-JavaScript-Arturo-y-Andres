@@ -3,13 +3,24 @@
 // Lógica para la página pública de cursos
 // ══════════════════════════════════════════════════
 
-// ── Dark mode ──────────────────────────────────────
+// =============================================================
+// TOGGLE MODO OSCURO / CLARO
+// Alterna la clase "dark-mode" en el body al hacer clic en el
+// botón de tema. Cambia el ícono entre 🌙 (oscuro) y ☀️ (claro)
+// según el modo activo.
+// =============================================================
 document.getElementById('btnTheme').addEventListener('click', function () {
     document.body.classList.toggle('dark-mode');
     this.textContent = document.body.classList.contains('dark-mode') ? '☀️' : '🌙';
 });
 
-// ── Helpers de datos ───────────────────────────────
+// =============================================================
+// CARGA DE DATOS DESDE LOCALSTORAGE
+// Lee y parsea de forma segura los arreglos de cursos, módulos,
+// lecciones y docentes. Si no existen o hay un error de parseo,
+// devuelve un arreglo vacío para evitar fallos en el resto
+// de la página.
+// =============================================================
 function getData(key) {
     try { return JSON.parse(localStorage.getItem(key)) || []; }
     catch (e) { return []; }
@@ -20,7 +31,12 @@ var modulos   = getData('modulos');
 var lecciones = getData('lecciones');
 var docentes  = getData('docentes');
 
-// ── Poblar filtro de áreas ─────────────────────────
+// =============================================================
+// POBLAR FILTRO DE ÁREAS
+// Extrae las áreas únicas de los docentes asociados a cada curso
+// y las agrega como opciones al select de filtro, ordenadas
+// alfabéticamente.
+// =============================================================
 var areas = cursos
     .map(function (c) {
         var d = getDocente(c.docente);
@@ -39,27 +55,50 @@ areas.forEach(function (a) {
     selectArea.appendChild(op);
 });
 
-// ── Helpers de búsqueda ────────────────────────────
+// =============================================================
+// OBTENER DOCENTE POR NOMBRE COMPLETO
+// Busca y retorna el objeto docente cuyo nombre completo
+// (nombres + apellidos) coincida con el valor recibido.
+// =============================================================
 function getDocente(nombreCompleto) {
     return docentes.find(function (d) {
         return (d.nombres + ' ' + d.apellidos) === nombreCompleto;
     });
 }
 
+// =============================================================
+// OBTENER MÓDULOS DE UN CURSO
+// Retorna todos los módulos que pertenecen al curso indicado.
+// =============================================================
 function getModulosDeCurso(nombreCurso) {
     return modulos.filter(function (m) { return m.curso === nombreCurso; });
 }
 
+// =============================================================
+// OBTENER LECCIONES DE UN MÓDULO
+// Retorna todas las lecciones que pertenecen al módulo indicado.
+// =============================================================
 function getLeccionesDeModulo(nombreModulo) {
     return lecciones.filter(function (l) { return l.modulo === nombreModulo; });
 }
 
+// =============================================================
+// GENERAR URL DE AVATAR DEL DOCENTE
+// Retorna la URL de la foto del docente si tiene una guardada.
+// Si no, genera un avatar automático con sus iniciales usando
+// la API de ui-avatars.
+// =============================================================
 function avatarUrl(docente) {
     if (docente && docente.foto) return docente.foto;
     var nombre = docente ? docente.nombres : 'D';
     return 'https://ui-avatars.com/api/?name=' + encodeURIComponent(nombre) + '&background=5C8374&color=fff';
 }
 
+// =============================================================
+// ESCAPAR HTML
+// Convierte caracteres especiales en entidades HTML para evitar
+// inyección de código al renderizar contenido dinámico en el DOM.
+// =============================================================
 function escHtml(str) {
     if (!str) return '';
     return String(str)
@@ -69,7 +108,14 @@ function escHtml(str) {
         .replace(/"/g, '&quot;');
 }
 
-// ── Render del grid ────────────────────────────────
+// =============================================================
+// RENDERIZAR GRID DE CURSOS
+// Genera y muestra las tarjetas de curso en el grid principal.
+// Muestra el contador de resultados encontrados. Si la lista
+// está vacía, muestra un mensaje ilustrado en su lugar.
+// Cada tarjeta incluye datos del curso, docente, número de
+// módulos y un botón para abrir el modal de detalle.
+// =============================================================
 function renderGrid(lista) {
     var grid = document.getElementById('gridCursos');
     var info = document.getElementById('infoResultados');
@@ -124,7 +170,13 @@ function renderGrid(lista) {
     });
 }
 
-// ── Filtrar cursos ─────────────────────────────────
+// =============================================================
+// FILTRAR CURSOS
+// Lee el texto del buscador y el área seleccionada, y filtra
+// el arreglo de cursos buscando coincidencias en nombre,
+// descripción, docente y código. Luego llama a renderGrid
+// con los resultados filtrados.
+// =============================================================
 function filtrar() {
     var texto = document.getElementById('busqueda').value.toLowerCase().trim();
     var area  = document.getElementById('filtroArea').value;
@@ -144,7 +196,13 @@ function filtrar() {
     renderGrid(resultado);
 }
 
-// ── Modal detalle ──────────────────────────────────
+// =============================================================
+// ABRIR MODAL DE DETALLE
+// Muestra el modal con la información completa del curso
+// seleccionado: código, nombre, descripción, card del docente
+// y la lista de módulos con sus lecciones anidadas. Bloquea
+// el scroll del body mientras el modal está abierto.
+// =============================================================
 function abrirModal(i) {
     var c       = cursos[i];
     var docente = getDocente(c.docente);
@@ -212,6 +270,12 @@ function abrirModal(i) {
     document.body.style.overflow = 'hidden';
 }
 
+// =============================================================
+// EXPANDIR / COLAPSAR MÓDULO EN EL MODAL
+// Alterna la visibilidad de la lista de lecciones de un módulo
+// al hacer clic en su encabezado. También rota el ícono de
+// flecha para indicar el estado abierto o cerrado.
+// =============================================================
 function toggleModulo(header) {
     var lista  = header.nextElementSibling;
     var toggle = header.querySelector('.modulo-toggle');
@@ -219,18 +283,32 @@ function toggleModulo(header) {
     toggle.classList.toggle('abierto', abierto);
 }
 
+// =============================================================
+// CERRAR MODAL (BOTÓN)
+// Cierra el modal de detalle quitando la clase "activo" y
+// restaura el scroll normal del body.
+// =============================================================
 function cerrarModalBtn() {
     document.getElementById('modalOverlay').classList.remove('activo');
     document.body.style.overflow = '';
 }
 
+// =============================================================
+// CERRAR MODAL AL HACER CLIC EN EL FONDO (OVERLAY)
+// Solo cierra el modal si el clic fue directamente sobre el
+// fondo oscuro, no sobre el contenido del modal.
+// =============================================================
 function cerrarModal(e) {
     if (e.target === document.getElementById('modalOverlay')) {
         cerrarModalBtn();
     }
 }
 
-// ── Inicio ─────────────────────────────────────────
+// =============================================================
+// INICIALIZACIÓN
+// Si no hay cursos registrados muestra un mensaje ilustrado.
+// Si hay cursos, renderiza el grid completo al cargar la página.
+// =============================================================
 if (cursos.length === 0) {
     document.getElementById('gridCursos').innerHTML =
         '<div class="vacio">' +

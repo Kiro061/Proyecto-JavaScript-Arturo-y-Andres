@@ -1,5 +1,9 @@
-// ── DATOS ─────────────────────────────────────────────
-
+// =============================================================
+// DATOS INICIALES
+// Declara los arreglos globales de cursos, módulos y lecciones.
+// Los carga desde localStorage si ya existen datos guardados
+// de sesiones anteriores.
+// =============================================================
 var cursos = [];
 var modulos = [];
 var lecciones = [];
@@ -16,6 +20,13 @@ if (localStorage.getItem("lecciones") != null) {
 
 // ── TABS ───────────────────────────────────────────────
 
+// =============================================================
+// MOSTRAR SECCIÓN (TABS)
+// Muestra la sección correspondiente al tab clickeado y oculta
+// las demás. Valida que existan cursos antes de ir a módulos,
+// y que existan módulos antes de ir a lecciones. Al cambiar
+// de pestaña actualiza los selects y las tablas de esa sección.
+// =============================================================
 function mostrarSeccion(id, boton) {
     // validar que haya cursos antes de ir a módulos
     if (id == "seccionModulos" && cursos.length == 0) {
@@ -51,6 +62,12 @@ function mostrarSeccion(id, boton) {
 
 // ── CURSOS ─────────────────────────────────────────────
 
+// =============================================================
+// GUARDAR CURSO
+// Valida los campos del formulario de curso y guarda un nuevo
+// registro o actualiza uno existente en el arreglo y en
+// localStorage. Luego limpia el formulario y refresca la tabla.
+// =============================================================
 function guardarCurso() {
     var codigo = document.getElementById("codigoCurso").value.trim();
     var nombre = document.getElementById("nombreCurso").value.trim();
@@ -83,6 +100,12 @@ function guardarCurso() {
     mostrarCursos();
 }
 
+// =============================================================
+// MOSTRAR CURSOS
+// Renderiza las filas HTML de la tabla de cursos. Si no hay
+// registros muestra un mensaje informativo en su lugar.
+// Cada fila incluye botones de editar y eliminar.
+// =============================================================
 function mostrarCursos() {
     var filas = document.getElementById("filasCursos");
     filas.innerHTML = "";
@@ -107,6 +130,12 @@ function mostrarCursos() {
     }
 }
 
+// =============================================================
+// EDITAR CURSO
+// Carga los datos del curso seleccionado en el formulario para
+// permitir su modificación. Hace scroll al inicio de la página
+// para que el formulario quede visible.
+// =============================================================
 function editarCurso(i) {
     var c = cursos[i];
     document.getElementById("codigoCurso").value = c.codigo;
@@ -117,6 +146,11 @@ function editarCurso(i) {
     window.scrollTo(0, 0);
 }
 
+// =============================================================
+// ELIMINAR CURSO
+// Solicita confirmación y elimina el curso del arreglo y de
+// localStorage. Luego refresca la tabla de cursos.
+// =============================================================
 function eliminarCurso(i) {
     var confirmar = confirm("¿Seguro que quieres eliminar este curso?");
     if (confirmar) {
@@ -126,6 +160,11 @@ function eliminarCurso(i) {
     }
 }
 
+// =============================================================
+// LIMPIAR FORMULARIO DE CURSO
+// Vacía todos los campos del formulario de curso, resetea el
+// índice de edición a -1 y borra el mensaje de error.
+// =============================================================
 function limpiarCurso() {
     document.getElementById("codigoCurso").value = "";
     document.getElementById("nombreCurso").value = "";
@@ -137,6 +176,11 @@ function limpiarCurso() {
 
 // ── MÓDULOS ────────────────────────────────────────────
 
+// =============================================================
+// CARGAR SELECT DE CURSOS
+// Rellena el desplegable de cursos en el formulario de módulos
+// con los cursos actualmente registrados en el arreglo.
+// =============================================================
 function cargarSelectCursos() {
     var select = document.getElementById("cursoModulo");
     select.innerHTML = "<option value=''>Seleccionar curso...</option>";
@@ -145,6 +189,12 @@ function cargarSelectCursos() {
     }
 }
 
+// =============================================================
+// GUARDAR MÓDULO
+// Valida los campos del formulario de módulo y guarda un nuevo
+// registro o actualiza uno existente en el arreglo y en
+// localStorage. Luego limpia el formulario y refresca la tabla.
+// =============================================================
 function guardarModulo() {
     var codigo = document.getElementById("codigoModulo").value.trim();
     var nombre = document.getElementById("nombreModulo").value.trim();
@@ -177,6 +227,12 @@ function guardarModulo() {
     mostrarModulos();
 }
 
+// =============================================================
+// MOSTRAR MÓDULOS
+// Renderiza las filas HTML de la tabla de módulos. Si no hay
+// registros muestra un mensaje informativo en su lugar.
+// Cada fila incluye botones de editar y eliminar.
+// =============================================================
 function mostrarModulos() {
     var filas = document.getElementById("filasModulos");
     filas.innerHTML = "";
@@ -201,6 +257,12 @@ function mostrarModulos() {
     }
 }
 
+// =============================================================
+// EDITAR MÓDULO
+// Carga los datos del módulo seleccionado en el formulario,
+// actualiza el select de cursos y hace scroll al inicio de
+// la página para que el formulario quede visible.
+// =============================================================
 function editarModulo(i) {
     var m = modulos[i];
     cargarSelectCursos();
@@ -212,6 +274,11 @@ function editarModulo(i) {
     window.scrollTo(0, 0);
 }
 
+// =============================================================
+// ELIMINAR MÓDULO
+// Solicita confirmación y elimina el módulo del arreglo y de
+// localStorage. Luego refresca la tabla de módulos.
+// =============================================================
 function eliminarModulo(i) {
     var confirmar = confirm("¿Seguro que quieres eliminar este módulo?");
     if (confirmar) {
@@ -221,6 +288,11 @@ function eliminarModulo(i) {
     }
 }
 
+// =============================================================
+// LIMPIAR FORMULARIO DE MÓDULO
+// Vacía todos los campos del formulario de módulo, resetea el
+// índice de edición a -1 y borra el mensaje de error.
+// =============================================================
 function limpiarModulo() {
     document.getElementById("codigoModulo").value = "";
     document.getElementById("nombreModulo").value = "";
@@ -232,6 +304,11 @@ function limpiarModulo() {
 
 // ── LECCIONES ──────────────────────────────────────────
 
+// =============================================================
+// CARGAR SELECT DE MÓDULOS
+// Rellena el desplegable de módulos en el formulario de
+// lecciones mostrando el nombre del módulo y su curso asociado.
+// =============================================================
 function cargarSelectModulos() {
     var select = document.getElementById("moduloLeccion");
     select.innerHTML = "<option value=''>Seleccionar módulo...</option>";
@@ -240,6 +317,13 @@ function cargarSelectModulos() {
     }
 }
 
+// =============================================================
+// GUARDAR LECCIÓN
+// Valida los campos obligatorios del formulario de lección y
+// guarda un nuevo registro o actualiza uno existente en el
+// arreglo y en localStorage. Luego limpia el formulario y
+// refresca la tabla. El campo multimedia es opcional.
+// =============================================================
 function guardarLeccion() {
     var titulo = document.getElementById("tituloLeccion").value.trim();
     var horas = document.getElementById("horasLeccion").value.trim();
@@ -274,6 +358,12 @@ function guardarLeccion() {
     mostrarLecciones();
 }
 
+// =============================================================
+// MOSTRAR LECCIONES
+// Renderiza las filas HTML de la tabla de lecciones. Si el
+// campo multimedia tiene valor, muestra un enlace "Ver recurso";
+// si no, muestra un guión. Incluye botones de editar y eliminar.
+// =============================================================
 function mostrarLecciones() {
     var filas = document.getElementById("filasLecciones");
     filas.innerHTML = "";
@@ -305,6 +395,12 @@ function mostrarLecciones() {
     }
 }
 
+// =============================================================
+// EDITAR LECCIÓN
+// Carga los datos de la lección seleccionada en el formulario,
+// actualiza el select de módulos y hace scroll al inicio de
+// la página para que el formulario quede visible.
+// =============================================================
 function editarLeccion(i) {
     var l = lecciones[i];
     cargarSelectModulos();
@@ -317,6 +413,11 @@ function editarLeccion(i) {
     window.scrollTo(0, 0);
 }
 
+// =============================================================
+// ELIMINAR LECCIÓN
+// Solicita confirmación y elimina la lección del arreglo y de
+// localStorage. Luego refresca la tabla de lecciones.
+// =============================================================
 function eliminarLeccion(i) {
     var confirmar = confirm("¿Seguro que quieres eliminar esta lección?");
     if (confirmar) {
@@ -326,6 +427,11 @@ function eliminarLeccion(i) {
     }
 }
 
+// =============================================================
+// LIMPIAR FORMULARIO DE LECCIÓN
+// Vacía todos los campos del formulario de lección, resetea el
+// índice de edición a -1 y borra el mensaje de error.
+// =============================================================
 function limpiarLeccion() {
     document.getElementById("tituloLeccion").value = "";
     document.getElementById("horasLeccion").value = "";
@@ -338,6 +444,12 @@ function limpiarLeccion() {
 
 // ── CARGAR SELECT DE DOCENTES ──────────────────────────
 
+// =============================================================
+// CARGAR SELECT DE DOCENTES
+// Rellena el desplegable de docentes en el formulario de cursos
+// leyendo el arreglo "docentes" guardado en localStorage.
+// Muestra el nombre completo (nombres + apellidos) de cada uno.
+// =============================================================
 function cargarSelectDocentes() {
     var select = document.getElementById("docenteCurso");
     select.innerHTML = "<option value=''>Seleccionar docente...</option>";
@@ -353,5 +465,10 @@ function cargarSelectDocentes() {
 
 // ── INICIO ─────────────────────────────────────────────
 
+// =============================================================
+// INICIALIZACIÓN
+// Al cargar la página, rellena el select de docentes y muestra
+// la tabla de cursos con los datos guardados en localStorage.
+// =============================================================
 cargarSelectDocentes();
 mostrarCursos();

@@ -1,34 +1,61 @@
 // perfil.js - Lógica de la página de perfil
 
-// Redirigir si no hay sesión activa
+// =============================================================
+// PROTECCIÓN DE RUTA
+// Verifica si hay una sesión activa. Si no existe, redirige
+// al index para evitar acceso no autorizado al perfil.
+// =============================================================
 var sesion = JSON.parse(localStorage.getItem("sesion"));
 if (!sesion) {
   window.location.href = "../index.html";
 }
 
-// Clave única por usuario para guardar su perfil
+// =============================================================
+// CLAVE DE PERFIL POR USUARIO
+// Genera una clave única en localStorage usando el correo de
+// la sesión activa, permitiendo que cada usuario tenga su
+// propio perfil guardado de forma independiente.
+// =============================================================
 var KEY_PERFIL = "perfil_" + sesion.correo;
 var datosPerfil = JSON.parse(localStorage.getItem(KEY_PERFIL)) || {};
 
-// Nombres de roles legibles
+// =============================================================
+// NOMBRES LEGIBLES DE ROLES
+// Mapea los valores internos de rol a nombres visibles
+// para mostrarlos en la interfaz de usuario.
+// =============================================================
 var roles = {
   estudiante: "Estudiante",
   docente: "Docente",
   coordinador: "Coordinador / Administrativo"
 };
 
-// Campos de cada sección
+// =============================================================
+// CAMPOS POR SECCIÓN
+// Define qué campos del formulario pertenecen a cada sección
+// del perfil: personal, institucional y seguridad.
+// =============================================================
 var camposSeccion = {
   personal:      ["nombreCompleto", "correo", "telefono", "direccion", "fechaNacimiento", "genero"],
   institucional: ["identificacion", "rolInstitucion", "codigoInstitucional", "areaGrado", "fechaIngreso", "estadoUsuario"],
   seguridad:     ["passActual", "passNueva", "passConfirmar"]
 };
 
-// Control de si cada sección está en modo edición
+// =============================================================
+// ESTADO DE EDICIÓN POR SECCIÓN
+// Controla si cada sección está actualmente en modo edición
+// (true) o solo lectura (false). "snapshots" guarda una copia
+// de los valores antes de editar para poder cancelar.
+// =============================================================
 var estadoEdicion = { personal: false, institucional: false, seguridad: false };
 var snapshots = {};
 
-// Poblar campos cuando carga la página
+// =============================================================
+// POBLAR CAMPOS AL CARGAR LA PÁGINA
+// Una vez cargado el DOM, rellena todos los campos del perfil
+// con los datos guardados en localStorage. También actualiza
+// el nombre, rol y foto del usuario en el navbar y el hero.
+// =============================================================
 window.addEventListener("DOMContentLoaded", function() {
 
   // Navbar y hero
@@ -59,7 +86,13 @@ window.addEventListener("DOMContentLoaded", function() {
   document.getElementById("estadoUsuario").value       = datosPerfil.estadoUsuario       || "Activo";
 });
 
-// Activar o desactivar edición de una sección
+// =============================================================
+// TOGGLE EDITAR SECCIÓN
+// Activa o desactiva el modo edición de una sección. Al activar,
+// guarda un snapshot de los valores actuales, habilita los
+// campos editables y muestra los botones de acción. Al
+// desactivar, llama a cancelarEditar para revertir cambios.
+// =============================================================
 function toggleEditar(seccion) {
   if (!estadoEdicion[seccion]) {
 
@@ -85,7 +118,13 @@ function toggleEditar(seccion) {
   }
 }
 
-// Cancelar edición y restaurar valores anteriores
+// =============================================================
+// CANCELAR EDICIÓN
+// Restaura los valores previos al modo edición usando el
+// snapshot guardado, deshabilita los campos y oculta los
+// botones de acción. También limpia mensajes de error o
+// éxito si la sección es "seguridad".
+// =============================================================
 function cancelarEditar(seccion) {
   if (snapshots[seccion]) {
     camposSeccion[seccion].forEach(function(id) {
@@ -107,7 +146,13 @@ function cancelarEditar(seccion) {
   }
 }
 
-// Guardar los cambios de una sección
+// =============================================================
+// GUARDAR SECCIÓN
+// Persiste los cambios de una sección en localStorage. Si la
+// sección editada es "personal" y el nombre cambió, también
+// actualiza el hero, el navbar y el objeto de sesión activa.
+// Luego deshabilita los campos y oculta los botones de acción.
+// =============================================================
 function guardarSeccion(seccion) {
   camposSeccion[seccion].forEach(function(id) {
     datosPerfil[id] = document.getElementById(id).value;
@@ -135,7 +180,14 @@ function guardarSeccion(seccion) {
   estadoEdicion[seccion] = false;
 }
 
-// Cambiar contraseña
+// =============================================================
+// GUARDAR CONTRASEÑA
+// Valida y actualiza la contraseña del usuario. Comprueba que
+// la contraseña actual sea correcta, que la nueva tenga al
+// menos 6 caracteres y que la confirmación coincida. Si todo
+// es válido, actualiza el arreglo de usuarios en localStorage
+// y muestra un mensaje de éxito.
+// =============================================================
 function guardarSeguridad() {
   var actual    = document.getElementById("passActual").value;
   var nueva     = document.getElementById("passNueva").value;
@@ -187,7 +239,12 @@ function guardarSeguridad() {
   okEl.textContent = "Contraseña actualizada correctamente.";
 }
 
-// Poner en mayúscula la primera letra
+// =============================================================
+// CAPITALIZAR
+// Función auxiliar que convierte la primera letra de un texto
+// a mayúscula. Se usa para construir los IDs de los elementos
+// HTML de cada sección (ej: "personal" → "Personal").
+// =============================================================
 function capitalizar(str) {
   return str.charAt(0).toUpperCase() + str.slice(1);
 }

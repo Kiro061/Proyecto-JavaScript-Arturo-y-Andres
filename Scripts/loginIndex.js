@@ -1,19 +1,38 @@
-// Rol seleccionado actualmente
+// =============================================================
+// ROL SELECCIONADO ACTUALMENTE
+// Variable global que almacena el rol activo en el formulario
+// de login. Por defecto inicia como "estudiante".
+// =============================================================
 var rolActual = "estudiante";
 
-// Usuarios de prueba guardados en localStorage
+// =============================================================
+// USUARIOS DE PRUEBA POR DEFECTO
+// Lista de usuarios iniciales con sus credenciales y roles.
+// Se usan para poder ingresar al sistema sin registro previo.
+// =============================================================
 var usuariosPorDefecto = [
   { correo: "estudiante@abc.edu.co", contrasena: "123456",   rol: "estudiante",  nombre: "María García" },
   { correo: "docente@abc.edu.co",    contrasena: "123456",   rol: "docente",     nombre: "Prof. Rodríguez" },
   { correo: "admin@abc.edu.co",      contrasena: "admin123", rol: "coordinador", nombre: "Coordinador" },
 ];
 
-// Guardar usuarios por defecto solo si no existen aún
+// =============================================================
+// INICIALIZAR USUARIOS EN LOCALSTORAGE
+// Guarda los usuarios por defecto en localStorage únicamente
+// si aún no existe ningún dato guardado, evitando sobrescribir
+// usuarios registrados previamente.
+// =============================================================
 if (!localStorage.getItem("usuarios")) {
   localStorage.setItem("usuarios", JSON.stringify(usuariosPorDefecto));
 }
 
-// Función para cambiar el rol seleccionado
+// =============================================================
+// CAMBIAR ROL
+// Actualiza el rol activo al hacer clic en uno de los botones
+// de selección de rol. Resalta visualmente el botón seleccionado,
+// muestra el nombre del rol en el formulario y limpia los campos
+// de correo, contraseña y mensaje de error.
+// =============================================================
 function cambiarRol(rol, boton) {
   rolActual = rol;
 
@@ -43,7 +62,17 @@ function cambiarRol(rol, boton) {
   document.getElementById("mensaje-error").textContent = "";
 }
 
-// Función para iniciar sesión
+// =============================================================
+// INICIAR SESIÓN
+// Valida las credenciales ingresadas contra los usuarios
+// guardados en localStorage. Si coinciden el correo, la
+// contraseña y el rol seleccionado, guarda la sesión activa
+// y redirige al usuario según su rol:
+//   - Coordinador  → principal.html
+//   - Estudiante / Docente → Index.html (catálogo público)
+// Si los campos están vacíos o las credenciales son incorrectas,
+// muestra un mensaje de error.
+// =============================================================
 function iniciarSesion() {
   var correo     = document.getElementById("correo").value.trim();
   var contrasena = document.getElementById("contrasena").value;

@@ -1,12 +1,27 @@
+// =============================================================
+// DATOS INICIALES
+// Declara el arreglo global de docentes y lo carga desde
+// localStorage si ya existen datos guardados previamente.
+// =============================================================
 var docentes = [];
 
-// cargar datos guardados
 if (localStorage.getItem("docentes") != null) {
     docentes = JSON.parse(localStorage.getItem("docentes"));
 }
 
+// =============================================================
+// INICIALIZACIÓN
+// Muestra la tabla de docentes al cargar la página con los
+// datos existentes en localStorage.
+// =============================================================
 mostrarTabla();
 
+// =============================================================
+// GUARDAR DOCENTE
+// Valida los campos obligatorios del formulario y guarda un
+// nuevo docente o actualiza uno existente en el arreglo y en
+// localStorage. Luego limpia el formulario y refresca la tabla.
+// =============================================================
 function guardar() {
 
     var codigo = document.getElementById("codigo").value;
@@ -46,6 +61,13 @@ function guardar() {
     mostrarTabla();
 }
 
+// =============================================================
+// MOSTRAR TABLA
+// Renderiza las filas HTML de la tabla de docentes. Muestra la
+// foto del docente o un avatar generado automáticamente si no
+// tiene foto. Si no hay registros muestra un mensaje informativo.
+// Cada fila incluye botones de editar y eliminar.
+// =============================================================
 function mostrarTabla() {
 
     var filas = document.getElementById("filas");
@@ -77,6 +99,11 @@ function mostrarTabla() {
     }
 }
 
+// =============================================================
+// EDITAR DOCENTE
+// Carga los datos del docente seleccionado en el formulario
+// para permitir su modificación.
+// =============================================================
 function editar(i) {
     var d = docentes[i];
     document.getElementById("codigo").value = d.codigo;
@@ -89,6 +116,14 @@ function editar(i) {
     document.getElementById("indiceEditar").value = i;
 }
 
+// =============================================================
+// ELIMINAR DOCENTE
+// Verifica si el docente está asignado a algún curso antes de
+// eliminarlo. Si tiene cursos asignados, muestra un aviso con
+// los nombres de esos cursos y bloquea la eliminación. Si no
+// tiene cursos, pide confirmación y elimina el registro del
+// arreglo y de localStorage.
+// =============================================================
 function eliminar(i) {
     var docente = docentes[i];
     var nombreDocente = docente.nombres + " " + docente.apellidos;
@@ -120,6 +155,11 @@ function eliminar(i) {
     }
 }
 
+// =============================================================
+// LIMPIAR FORMULARIO
+// Vacía todos los campos del formulario de docente, resetea el
+// índice de edición a -1 y borra el mensaje de error.
+// =============================================================
 function limpiar() {
     document.getElementById("codigo").value = "";
     document.getElementById("identificacion").value = "";
