@@ -139,6 +139,7 @@ function renderGrid(lista) {
     lista.forEach(function (c) {
         var docente = getDocente(c.docente);
         var mods    = getModulosDeCurso(c.nombre);
+        var lec    = getLeccionesDeModulo(c.nombre);
         var foto    = avatarUrl(docente);
         var area    = docente ? docente.area : '';
         var idx     = cursos.indexOf(c);
@@ -163,6 +164,7 @@ function renderGrid(lista) {
             '</div>' +
             '<div class="card-footer">' +
                 '<span class="badge-modulos">📚 ' + mods.length + (mods.length === 1 ? ' módulo' : ' módulos') + '</span>' +
+                '<span class="badge-modulos">📝' + lec.length + (lec.length === 1 ? ' leccion' : ' lecciones') + '</span>' +
                 '<button class="btn-ver" onclick="abrirModal(' + idx + ')">Ver curso →</button>' +
             '</div>';
 
