@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <link rel="icon" type="image/png" href="../../images/favicon/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="../../images/favicon/favicon.svg" />
+  <link rel="shortcut icon" href="../../images/favicon/favicon.ico" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mi Portal — Estudiante</title>
+  <link rel="stylesheet" href="../../Styles/Styles.css">
+  <link rel="stylesheet" href="../../Styles/StylesVistaEstudiante.css">
+</head>
+<body>
+
+  <!-- ── Navbar ── -->
+  <header class="barraNav">
+    <div class="logoBarra">
+      <img src="../../images/logo_blanco.png" alt="Logo" class="logo">
+    </div>
+    <nav class="menuStudent">
+      <a href="./vistaEstudiante.html" class="nav-link active">Mis Cursos</a>
+      <a href="./perfil.html" class="nav-link">Mi Perfil</a>
+    </nav>
+    <div class="navControls">
+      <button class="btnTheme" id="btnTheme" title="Cambiar tema">🌙</button>
+      <div class="userMenu">
+        <button class="userBtn" id="userBtn">
+          <div class="userAvatar">
+            <img src="../../images/ImagenPerfil.png" alt="Usuario">
+          </div>
+          <span class="userName" id="nombreSesion"></span>
+          <span class="arrow">▲</span>
+        </button>
+        <div class="dropdown" id="dropdown">
+          <a href="./perfil.html" class="dropItem">
+            <img src="../../images/user.svg" class="dropIcon-img" alt="Mi perfil">
+            Mi perfil
+          </a>
+          <div class="dropDivider"></div>
+          <a href="#" id="btnLogout" class="dropItem logout">
+            <img src="../../images/logout.svg" class="dropIcon-img" alt="Cerrar sesión">
+            Cerrar sesión
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ── Hero saludo ── -->
+  <section class="hero-estudiante">
+    <div class="hero-contenido">
+      <p class="hero-etiqueta">Portal Estudiantil</p>
+      <h1 id="saludoEstudiante">Bienvenido</h1>
+      <p class="hero-sub">Estos son los cursos en los que estás matriculado.</p>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-bloque">
+        <span class="stat-num" id="statCursos">0</span>
+        <span class="stat-label">Cursos</span>
+      </div>
+      <div class="stat-bloque">
+        <span class="stat-num" id="statModulos">0</span>
+        <span class="stat-label">Módulos</span>
+      </div>
+      <div class="stat-bloque">
+        <span class="stat-num" id="statLecciones">0</span>
+        <span class="stat-label">Lecciones</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Contenido principal ── -->
+  <div class="pagina-est">
+
+    <!-- Buscador -->
+    <div class="barra-busqueda">
+      <input type="text" id="buscador" placeholder="🔍 Buscar entre mis cursos..." oninput="buscar()">
+    </div>
+
+    <!-- Sin cursos -->
+    <div id="mensajeSinCursos" class="sin-cursos" style="display:none;">
+      <div class="sin-cursos-icono">📚</div>
+      <p class="sin-cursos-titulo">Aún no estás matriculado en ningún curso</p>
+      <p class="sin-cursos-sub">Contacta al coordinador para que te asignen cursos.</p>
+    </div>
+
+    <!-- Grid de cursos -->
+    <div id="gridCursos" class="grid-cursos-est"></div>
+
+  </div>
+
+  <!-- ── Modal de detalle del curso ── -->
+  <div id="modalOverlay" class="modal-overlay-est" onclick="cerrarModal(event)">
+    <div class="modal-est">
+      <div class="modal-cabecera">
+        <div>
+          <p class="modal-codigo-est" id="mCodigo"></p>
+          <h2 class="modal-titulo-est" id="mNombre"></h2>
+        </div>
+        <button class="modal-btn-cerrar" onclick="cerrarModal()">✕</button>
+      </div>
+
+      <div class="modal-cuerpo">
+        <!-- Info del docente -->
+        <div class="modal-docente-est" id="mDocente"></div>
+
+        <!-- Descripción -->
+        <p class="modal-descripcion-est" id="mDescripcion"></p>
+
+        <!-- Módulos con lecciones -->
+        <p class="seccion-label">Módulos del curso</p>
+        <div id="mModulos"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="../../Scripts/barraNav.js"></script>
+  <script src="../../Scripts/ScriptVistaEstudiante.js"></script>
+</body>
+</html>

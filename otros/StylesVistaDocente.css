@@ -1,0 +1,228 @@
+/* ── CONTENEDOR PRINCIPAL ─────────────────────── */
+.pagina {
+    padding: 30px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+/* ── SALUDO ───────────────────────────────────── */
+.saludo-docente {
+    margin-bottom: 28px;
+    border-bottom: 3px solid #9EC8B9;
+    padding-bottom: 12px;
+}
+
+.saludo-docente h2 {
+    color: #1B4242;
+    font-size: 26px;
+    margin: 0 0 4px 0;
+}
+
+.subtitulo {
+    color: #5C8374;
+    font-size: 14px;
+    margin: 0;
+}
+
+/* ── BUSCADOR ─────────────────────────────────── */
+.buscador-contenedor {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 24px;
+}
+
+.buscador-contenedor input {
+    padding: 8px 14px;
+    border: 1px solid #9EC8B9;
+    border-radius: 6px;
+    font-size: 14px;
+    width: 260px;
+    outline: none;
+    color: #333;
+    font-family: 'Nunito', sans-serif;
+}
+
+.buscador-contenedor input:focus {
+    border-color: #5C8374;
+    box-shadow: 0 0 0 2px rgba(92, 131, 116, 0.2);
+}
+
+/* ── MENSAJE SIN CURSOS ───────────────────────── */
+.mensaje-vacio {
+    text-align: center;
+    color: gray;
+    font-size: 15px;
+    margin-top: 40px;
+}
+
+/* ── TARJETAS DE CURSOS ───────────────────────── */
+.contenedor-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.card-curso {
+    background-color: white;
+    border: 1px solid #d0e8e0;
+    border-radius: 10px;
+    padding: 20px 22px;
+    width: 280px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card-curso:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+}
+
+.card-codigo {
+    font-size: 11px;
+    font-weight: bold;
+    color: #5C8374;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+}
+
+.card-nombre {
+    font-size: 17px;
+    font-weight: bold;
+    color: #1B4242;
+    margin-bottom: 8px;
+}
+
+.card-descripcion {
+    font-size: 13px;
+    color: #555;
+    margin-bottom: 14px;
+    line-height: 1.5;
+}
+
+.card-info {
+    font-size: 12px;
+    color: #888;
+    margin-bottom: 4px;
+}
+
+.card-info span {
+    font-weight: bold;
+    color: #1B4242;
+}
+
+.card-btn {
+    margin-top: 16px;
+    width: 100%;
+    padding: 9px;
+    background-color: #1B4242;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    font-family: 'Nunito', sans-serif;
+}
+
+.card-btn:hover {
+    background-color: #5C8374;
+}
+
+/* ── MODAL ────────────────────────────────────── */
+.modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(9, 38, 53, 0.55);
+    z-index: 2000;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-overlay.activo {
+    display: flex;
+}
+
+.modal-contenido {
+    background-color: white;
+    border-radius: 12px;
+    padding: 30px;
+    width: 480px;
+    max-height: 80vh;
+    overflow-y: auto;
+    position: relative;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+}
+
+.modal-cerrar {
+    position: absolute;
+    top: 14px;
+    right: 16px;
+    background: transparent;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+    color: #888;
+}
+
+.modal-cerrar:hover {
+    color: #c0392b;
+}
+
+.modal-contenido h3 {
+    color: #1B4242;
+    font-size: 20px;
+    margin: 0 0 10px 0;
+    border-bottom: 2px solid #9EC8B9;
+    padding-bottom: 8px;
+}
+
+.modal-contenido h4 {
+    color: #5C8374;
+    font-size: 14px;
+    margin: 20px 0 8px 0;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.modal-contenido p {
+    color: #555;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+/* ── LISTAS DEL MODAL ─────────────────────────── */
+.lista-modulos,
+.lista-estudiantes {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.lista-modulos li,
+.lista-estudiantes li {
+    padding: 7px 10px;
+    border-left: 3px solid #9EC8B9;
+    margin-bottom: 6px;
+    font-size: 13px;
+    color: #333;
+    background-color: #f4faf8;
+    border-radius: 0 6px 6px 0;
+}
+
+.lista-modulos li span,
+.lista-estudiantes li span {
+    color: #888;
+    font-size: 12px;
+    margin-left: 6px;
+}
+
+.sin-datos {
+    color: gray;
+    font-size: 13px;
+    font-style: italic;
+}

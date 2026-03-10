@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <link rel="icon" type="image/png" href="../../images/favicon/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="../../images/favicon/favicon.svg" />
+  <link rel="shortcut icon" href="../../images/favicon/favicon.ico" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mi Panel — Docente</title>
+  <link rel="stylesheet" href="../../Styles/Styles.css">
+  <link rel="stylesheet" href="../../Styles/StylesVistaDocente2.css">
+</head>
+<body>
+
+  <!-- ── Navbar ── -->
+  <header class="barraNav">
+    <div class="logoBarra">
+      <img src="../../images/logo_blanco.png" alt="Logo" class="logo">
+    </div>
+    <nav class="menuStudent">
+      <a href="./vistaDocente2.html" class="nav-link active">Mi Panel</a>
+      <a href="./perfil.html" class="nav-link">Mi Perfil</a>
+    </nav>
+    <div class="navControls">
+      <button class="btnTheme" id="btnTheme" title="Cambiar tema">🌙</button>
+      <div class="userMenu">
+        <button class="userBtn" id="userBtn">
+          <div class="userAvatar">
+            <img src="../../images/ImagenPerfil.png" alt="Usuario">
+          </div>
+          <span class="userName" id="nombreSesion"></span>
+          <span class="arrow">▲</span>
+        </button>
+        <div class="dropdown" id="dropdown">
+          <a href="./perfil.html" class="dropItem">
+            <img src="../../images/user.svg" class="dropIcon-img" alt="Mi perfil">
+            Mi perfil
+          </a>
+          <div class="dropDivider"></div>
+          <a href="#" id="btnLogout" class="dropItem logout">
+            <img src="../../images/logout.svg" class="dropIcon-img" alt="Cerrar sesión">
+            Cerrar sesión
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ── Hero del docente ── -->
+  <section class="hero-docente">
+    <div class="hero-doc-contenido">
+      <p class="hero-doc-etiqueta">Portal Docente</p>
+      <h1 id="saludoDocente">Bienvenido</h1>
+      <p id="areaDocente" class="hero-doc-area"></p>
+    </div>
+    <div class="hero-doc-stats">
+      <div class="stat-doc">
+        <span class="stat-doc-num" id="statCursos">0</span>
+        <span class="stat-doc-label">Cursos</span>
+      </div>
+      <div class="stat-doc">
+        <span class="stat-doc-num" id="statEstudiantes">0</span>
+        <span class="stat-doc-label">Estudiantes</span>
+      </div>
+      <div class="stat-doc">
+        <span class="stat-doc-num" id="statModulos">0</span>
+        <span class="stat-doc-label">Módulos</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Contenido principal ── -->
+  <div class="pagina-doc">
+
+    <!-- Buscador -->
+    <div class="barra-busqueda-doc">
+      <input type="text" id="buscador" placeholder="🔍 Buscar entre mis cursos..." oninput="buscar()">
+    </div>
+
+    <!-- Sin cursos -->
+    <div id="mensajeSinCursos" class="sin-cursos-doc" style="display:none;">
+      <div class="sin-cursos-icono-doc">🗂️</div>
+      <p class="sin-cursos-titulo-doc">Aún no tienes cursos asignados</p>
+      <p class="sin-cursos-sub-doc">El coordinador debe asignarte cursos desde el módulo de Cursos.</p>
+    </div>
+
+    <!-- Grid de cursos del docente -->
+    <div id="gridCursos" class="grid-doc"></div>
+
+  </div>
+
+  <!-- ── Modal detalle del curso ── -->
+  <div id="modalOverlay" class="modal-overlay-doc" onclick="cerrarModal(event)">
+    <div class="modal-doc">
+      <div class="modal-doc-cabecera">
+        <div>
+          <p class="modal-doc-codigo" id="mCodigo"></p>
+          <h2 class="modal-doc-titulo" id="mNombre"></h2>
+          <p class="modal-doc-desc" id="mDescripcion"></p>
+        </div>
+        <button class="modal-doc-cerrar" onclick="cerrarModal()">✕</button>
+      </div>
+
+      <div class="modal-doc-cuerpo">
+
+        <!-- Tabs dentro del modal -->
+        <div class="modal-tabs">
+          <button class="modal-tab activo" onclick="cambiarTab('modulos', this)">📚 Módulos</button>
+          <button class="modal-tab" onclick="cambiarTab('estudiantes', this)">👩‍🎓 Estudiantes</button>
+        </div>
+
+        <!-- Panel módulos -->
+        <div id="panelModulos" class="panel-tab">
+          <div id="mModulos"></div>
+        </div>
+
+        <!-- Panel estudiantes -->
+        <div id="panelEstudiantes" class="panel-tab" style="display:none;">
+          <div id="mEstudiantes"></div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <script src="../../Scripts/barraNav.js"></script>
+  <script src="../../Scripts/ScriptVistaDocente2.js"></script>
+</body>
+</html>

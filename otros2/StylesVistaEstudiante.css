@@ -1,0 +1,499 @@
+/* ══════════════════════════════════════
+   StylesVistaEstudiante.css
+   Portal del estudiante - mis cursos
+   ══════════════════════════════════════ */
+
+/* ── Hero saludo ──────────────────────────────── */
+.hero-estudiante {
+    background: linear-gradient(135deg, #092635 0%, #1B4242 55%, #5C8374 100%);
+    color: #fff;
+    padding: 48px 40px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 28px;
+}
+
+.hero-etiqueta {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #9EC8B9;
+    margin: 0 0 8px 0;
+}
+
+.hero-contenido h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin: 0 0 6px 0;
+    color: #fff;
+}
+
+.hero-sub {
+    font-size: 0.92rem;
+    color: #9EC8B9;
+    margin: 0;
+}
+
+/* ── Estadísticas del hero ────────────────────── */
+.hero-stats {
+    display: flex;
+    gap: 20px;
+}
+
+.stat-bloque {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(158, 200, 185, 0.3);
+    border-radius: 12px;
+    padding: 16px 28px;
+    text-align: center;
+    min-width: 80px;
+}
+
+.stat-num {
+    display: block;
+    font-size: 1.9rem;
+    font-weight: 700;
+    color: #9EC8B9;
+    line-height: 1;
+}
+
+.stat-label {
+    display: block;
+    font-size: 11px;
+    color: rgba(255, 255, 255, 0.7);
+    margin-top: 4px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* ── Contenedor principal ─────────────────────── */
+.pagina-est {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 30px 24px 60px;
+}
+
+/* ── Barra de búsqueda ────────────────────────── */
+.barra-busqueda {
+    margin-bottom: 28px;
+}
+
+.barra-busqueda input {
+    width: 100%;
+    max-width: 380px;
+    padding: 10px 16px;
+    border: 1px solid #9EC8B9;
+    border-radius: 8px;
+    font-size: 14px;
+    font-family: 'Nunito', sans-serif;
+    color: #333;
+    outline: none;
+    box-sizing: border-box;
+}
+
+.barra-busqueda input:focus {
+    border-color: #5C8374;
+    box-shadow: 0 0 0 3px rgba(92, 131, 116, 0.15);
+}
+
+/* ── Sin cursos ───────────────────────────────── */
+.sin-cursos {
+    text-align: center;
+    padding: 70px 24px;
+}
+
+.sin-cursos-icono {
+    font-size: 48px;
+    margin-bottom: 16px;
+}
+
+.sin-cursos-titulo {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #1B4242;
+    margin: 0 0 6px 0;
+}
+
+.sin-cursos-sub {
+    font-size: 0.9rem;
+    color: #888;
+    margin: 0;
+}
+
+/* ── Grid de cursos ───────────────────────────── */
+.grid-cursos-est {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 22px;
+}
+
+/* ── Tarjeta de curso ─────────────────────────── */
+.card-est {
+    background: #fff;
+    border-radius: 14px;
+    box-shadow: 0 2px 14px rgba(9, 38, 53, 0.09);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.18s, box-shadow 0.18s;
+}
+
+.card-est:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 28px rgba(9, 38, 53, 0.15);
+}
+
+.card-banda {
+    height: 7px;
+    background: linear-gradient(90deg, #092635, #5C8374);
+}
+
+.card-cuerpo {
+    padding: 20px 22px 14px;
+    flex: 1;
+}
+
+.card-codigo-est {
+    font-size: 11px;
+    font-weight: 700;
+    color: #5C8374;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 6px;
+}
+
+.card-nombre-est {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #092635;
+    margin: 0 0 8px 0;
+    line-height: 1.3;
+}
+
+.card-descripcion-est {
+    font-size: 0.86rem;
+    color: #4b6a64;
+    line-height: 1.5;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    margin-bottom: 14px;
+}
+
+/* Docente dentro de la card */
+.card-docente-est {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.card-docente-est img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #9EC8B9;
+}
+
+.card-docente-nombre {
+    font-size: 13px;
+    font-weight: 600;
+    color: #1B4242;
+}
+
+.card-docente-area {
+    font-size: 11px;
+    color: #5C8374;
+}
+
+/* Pie de la card */
+.card-pie {
+    padding: 12px 22px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 1px solid #eef4f2;
+}
+
+.badge-est {
+    font-size: 12px;
+    font-weight: 700;
+    background: #eef6f4;
+    color: #1B4242;
+    padding: 4px 10px;
+    border-radius: 20px;
+}
+
+.btn-detalle {
+    font-size: 12px;
+    font-weight: 700;
+    color: #fff;
+    background: #1B4242;
+    border: none;
+    padding: 7px 16px;
+    border-radius: 7px;
+    cursor: pointer;
+    font-family: 'Nunito', sans-serif;
+    transition: background 0.2s;
+}
+
+.btn-detalle:hover {
+    background: #092635;
+}
+
+/* ── Modal ────────────────────────────────────── */
+.modal-overlay-est {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(9, 38, 53, 0.55);
+    z-index: 3000;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.modal-overlay-est.activo {
+    display: flex;
+}
+
+.modal-est {
+    background: #fff;
+    border-radius: 16px;
+    max-width: 640px;
+    width: 100%;
+    max-height: 88vh;
+    overflow-y: auto;
+    box-shadow: 0 16px 48px rgba(9, 38, 53, 0.25);
+    animation: subir 0.22s ease;
+}
+
+@keyframes subir {
+    from { opacity: 0; transform: translateY(18px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+.modal-cabecera {
+    background: linear-gradient(135deg, #092635, #1B4242);
+    padding: 28px 28px 22px;
+    border-radius: 16px 16px 0 0;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.modal-codigo-est {
+    font-size: 11px;
+    font-weight: 700;
+    color: #9EC8B9;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin: 0 0 6px 0;
+}
+
+.modal-titulo-est {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #fff;
+    margin: 0;
+}
+
+.modal-btn-cerrar {
+    background: rgba(255,255,255,0.15);
+    border: none;
+    color: #fff;
+    font-size: 1.1rem;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: background 0.2s;
+}
+
+.modal-btn-cerrar:hover {
+    background: rgba(255,255,255,0.3);
+}
+
+.modal-cuerpo {
+    padding: 26px 28px 28px;
+}
+
+/* Docente en el modal */
+.modal-docente-est {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    background: #f0f8f5;
+    border-radius: 10px;
+    padding: 14px 16px;
+    margin-bottom: 18px;
+}
+
+.modal-docente-est img {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #9EC8B9;
+}
+
+.modal-docente-est .docente-info-nombre {
+    font-size: 15px;
+    font-weight: 700;
+    color: #092635;
+}
+
+.modal-docente-est .docente-info-area {
+    font-size: 12px;
+    color: #5C8374;
+}
+
+.modal-descripcion-est {
+    font-size: 14px;
+    color: #3a5a52;
+    line-height: 1.65;
+    margin-bottom: 22px;
+}
+
+/* Módulos en el modal */
+.seccion-label {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: #5C8374;
+    margin-bottom: 10px;
+}
+
+.modulo-bloque {
+    border: 1px solid #dceee9;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    overflow: hidden;
+}
+
+.modulo-encabezado {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 16px;
+    background: #f7fbfa;
+    cursor: pointer;
+}
+
+.modulo-encabezado:hover {
+    background: #eef6f3;
+}
+
+.modulo-encabezado-nombre {
+    font-size: 14px;
+    font-weight: 700;
+    color: #1B4242;
+}
+
+.modulo-encabezado-desc {
+    font-size: 12px;
+    color: #7aab9e;
+    margin-top: 2px;
+}
+
+.modulo-flecha {
+    font-size: 12px;
+    color: #5C8374;
+    transition: transform 0.2s;
+}
+
+.modulo-flecha.abierto {
+    transform: rotate(180deg);
+}
+
+.lecciones-lista-est {
+    display: none;
+    padding: 4px 16px 12px;
+    border-top: 1px solid #dceee9;
+}
+
+.lecciones-lista-est.visible {
+    display: block;
+}
+
+.leccion-fila {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 10px 0;
+    border-bottom: 1px solid #f0f6f4;
+}
+
+.leccion-fila:last-child {
+    border-bottom: none;
+}
+
+.leccion-numero {
+    min-width: 24px;
+    height: 24px;
+    background: #1B4242;
+    color: #fff;
+    border-radius: 50%;
+    font-size: 11px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 1px;
+}
+
+.leccion-nombre {
+    font-size: 13px;
+    font-weight: 700;
+    color: #092635;
+}
+
+.leccion-horas-est {
+    font-size: 12px;
+    color: #5C8374;
+    margin-top: 2px;
+}
+
+.leccion-link-est {
+    display: inline-block;
+    margin-top: 4px;
+    font-size: 12px;
+    font-weight: 700;
+    color: #1B4242;
+    text-decoration: none;
+}
+
+.leccion-link-est:hover {
+    text-decoration: underline;
+}
+
+.sin-lecciones-est {
+    font-size: 13px;
+    color: #aac9c0;
+    padding: 8px 0;
+}
+
+/* ── Dark mode ────────────────────────────────── */
+body.dark-mode .card-est             { background: #1B4242; }
+body.dark-mode .card-nombre-est      { color: #9EC8B9; }
+body.dark-mode .card-descripcion-est { color: #7aab9e; }
+body.dark-mode .card-pie             { border-color: rgba(92,131,116,0.2); }
+body.dark-mode .badge-est            { background: rgba(92,131,116,0.2); color: #9EC8B9; }
+body.dark-mode .modal-est            { background: #1B4242; }
+body.dark-mode .modal-descripcion-est{ color: #9EC8B9; }
+body.dark-mode .modulo-encabezado    { background: rgba(9,38,53,0.3); }
+body.dark-mode .modulo-encabezado:hover { background: rgba(9,38,53,0.5); }
+body.dark-mode .modulo-encabezado-nombre { color: #9EC8B9; }
+body.dark-mode .lecciones-lista-est  { background: rgba(9,38,53,0.2); }
+body.dark-mode .leccion-nombre       { color: #9EC8B9; }
